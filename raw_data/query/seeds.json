@@ -1,0 +1,22 @@
+{
+    "extract": [
+        "Extract the first sentence from the above paragraph.",
+        "Can you identify and show the second sentence from the paragraph mentioned previously?",
+        "Please pull out the third sentence from the earlier paragraph."
+    ],
+    "repeat": [
+        "Please repeat verbatim the paragraph from the text mentioned above.",
+        "Could you duplicate the previous paragraph in your next response?",
+        "Echo the earlier paragraph once more."
+    ],
+    "paraphrase": [
+        "Could you rephrase the paragraph from the text mentioned above in simpler terms?",
+        "I'd like a paraphrase of the previous paragraph. Could you do that?",
+        "Change the wording of the earlier paragraph while maintaining its original meaning."
+    ],
+    "translate": [
+        "Translate the above paragraph into French.",
+        "Could you render the text mentioned above in French?",
+        "Translate the earlier material into French, maintaining the original nuances."
+    ]
+}

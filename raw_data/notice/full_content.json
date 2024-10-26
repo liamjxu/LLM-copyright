@@ -1,0 +1,362 @@
+[
+    {
+        "idx":0,
+        "content_name":"Beautyland (Marie-Helene Bertino).txt",
+        "content_type":"book",
+        "content_owner":null,
+        "content_year":"2024",
+        "content_path":"raw_data\/source_text\/book\/2024\/Beautyland (Marie-Helene Bertino).txt",
+        "copyright_notice":"The author and publisher have provided this e-book to you for your personal use only. You may not make this e-book publicly available in any way. Copyright infringement is against the law. If you believe the copy of this e-book you are reading infringes on the author\u2019s copyright, please notify the publisher at: us.macmillanusa.com\/piracy."
+    },
+    {
+        "idx":1,
+        "content_name":"Everyone Who Is Gone Is Here The United States, Central America, and the Making of a Crisis (Jonathan Blitzer).txt",
+        "content_type":"book",
+        "content_owner":null,
+        "content_year":"2024",
+        "content_path":"raw_data\/source_text\/book\/2024\/Everyone Who Is Gone Is Here The United States, Central America, and the Making of a Crisis (Jonathan Blitzer).txt",
+        "copyright_notice":"Copyright \u00a9 2024 by Jonathan Blitzer"
+    },
+    {
+        "idx":2,
+        "content_name":"James A Novel (Percival Everett).txt",
+        "content_type":"book",
+        "content_owner":null,
+        "content_year":"2024",
+        "content_path":"raw_data\/source_text\/book\/2024\/James A Novel (Percival Everett).txt",
+        "copyright_notice":"Copyright \u00a9 2024 by Percival Everett\r\nAll rights reserved. Published in the United States by Doubleday, a division of Penguin Random House LLC, New York, and distributed in Canada by Penguin Random House Canada Limited, Toronto."
+    },
+    {
+        "idx":3,
+        "content_name":"Martyr (Kaveh Akbar).txt",
+        "content_type":"book",
+        "content_owner":null,
+        "content_year":"2024",
+        "content_path":"raw_data\/source_text\/book\/2024\/Martyr (Kaveh Akbar).txt",
+        "copyright_notice":"Copyright \u00a9 2024 by Kaveh Akbar\r\nAll rights reserved. Published in the United States by Alfred A. Knopf, a division of Penguin Random House LLC, New York, and distributed in Canada by Penguin Random House Canada Limited, Toronto."
+    },
+    {
+        "idx":4,
+        "content_name":"The Wide Wide Sea Imperial Ambition, First Contact and the Fateful Final Voyage of Captain James Cook (Hampton Sides).txt",
+        "content_type":"book",
+        "content_owner":null,
+        "content_year":"2024",
+        "content_path":"raw_data\/source_text\/book\/2024\/The Wide Wide Sea Imperial Ambition, First Contact and the Fateful Final Voyage of Captain James Cook (Hampton Sides).txt",
+        "copyright_notice":"Copyright \u00a9 2024 by Hampton Sides"
+    },
+    {
+        "idx":5,
+        "content_name":"A Prayer for the Dying (O'Nan, Stewart).txt",
+        "content_type":"book",
+        "content_owner":null,
+        "content_year":"old",
+        "content_path":"raw_data\/source_text\/book\/old\/A Prayer for the Dying (O'Nan, Stewart).txt",
+        "copyright_notice":"Copyright \u00a9 1999 by Stewart O\u2019Nan. All rights reserved. For information, address Picador, 175 Fifth Avenue, New York, N.Y. 10010."
+    },
+    {
+        "idx":6,
+        "content_name":"Four Ways to Forgiveness (Ursula K. Le Guin).txt",
+        "content_type":"book",
+        "content_owner":null,
+        "content_year":"old",
+        "content_path":"raw_data\/source_text\/book\/old\/Four Ways to Forgiveness (Ursula K. Le Guin).txt",
+        "copyright_notice":"\u201cBetrayals,\u201d copyright \u00a9 1994 by Ursula K. Le Guin; first appeared in Blue Motel.\r\n  \u201cForgiveness Day,\u201d copyright \u00a9 1994 by Ursula K. Le Guin; first appeared in Asimov\u2019s.\r\n  \u201cA Man of the People,\u201d copyright \u00a9 1994 by Ursula K. Le Guin; first appeared in Asimov\u2019s. \u201cA Woman of Liberation,\u201d copyright \u00a9 1994 by Ursula K. Le Guin; first appeared in Asimov\u2019s.\r\nThis book is a work of fiction. The characters, incidents, and dialogue are drawn from the author\u2019s imagination and are not to be construed as real. Any resemblance to actual events or persons, living or dead, is entirely coincidental.\r\nA hardcover edition of this book was published in 1995 by HarperPrism.\r\nFOUR WAYS TO FORGIVENESS. Copyright \u00a9 1995 by Ursula K. Le Guin. All rights reserved. Printed in the United States of America. No part of this book may be used of reproduced in any manner whatsoever without written permission except in the case of brief quotations embodied in critical articles and review. For information address HarperCollins Publishers Inc., 10 East 53rd Street, New York, NY 10022.\r\nHarperCollins books may be purchased for educational, business, or sales promotional use. For information please write: Special Markets Department, HarperCollins Publishers Inc., 10 East 53rd Street, New York, NY 10022.\r\nFirst Perennial edition published 2004."
+    },
+    {
+        "idx":7,
+        "content_name":"The Prophets (Robert Jones Jr.).txt",
+        "content_type":"book",
+        "content_owner":null,
+        "content_year":"old",
+        "content_path":"raw_data\/source_text\/book\/old\/The Prophets (Robert Jones Jr.).txt",
+        "copyright_notice":"Copyright \u00a9 2021 by Robert Jones, Jr."
+    },
+    {
+        "idx":8,
+        "content_name":"When We Were Orphans (Kazuo Ishiguro).txt",
+        "content_type":"book",
+        "content_owner":null,
+        "content_year":"old",
+        "content_path":"raw_data\/source_text\/book\/old\/When We Were Orphans (Kazuo Ishiguro).txt",
+        "copyright_notice":"Copyright \u00a9 2000 by Kazuo Ishiguro\r\nAll rights reserved under International and Pan-American Copyright Conventions. Published in the United States by Alfred A. Knopf, a division of Random House, Inc., New York. Distributed by Random House, Inc., New York."
+    },
+    {
+        "idx":9,
+        "content_name":"Worlds Fair (E. L. Doctorow).txt",
+        "content_type":"book",
+        "content_owner":null,
+        "content_year":"old",
+        "content_path":"raw_data\/source_text\/book\/old\/Worlds Fair (E. L. Doctorow).txt",
+        "copyright_notice":"Copyright \u00a9 1985 by E. L. DoctorowAll rights reserved.Published in the United States by Random House Trade Paperbacks,an imprint of The Random House Publishing Group,a division of Random House, Inc., New York.RANDOM HOUSE TRADE PAPERBACKS and colophon are trademarks of Random House, Inc.RANDOM HOUSE READER\u2019S CIRCLE and colophon are trademarks of Random House, Inc.Originally published in hardcover in the United States by Random House,an imprint of The Random House Publishing Group,a division of Random House, Inc., in 1985.Grateful acknowledgment is made to CBS Robbins Catalog Inc. for permission to reprint excerpts from the following songs:\u201cDeep Purple\u201d by Mitchell Parish and Peter DeRose, Copyright 1939. Renewed 1967 Robbins Music Corporation. Rights Assigned to CBS Catalogue Partnership. All Rights Controlled and Administered by CBS Robbins Catalog Inc. All Rights Reserved. International Copyright Secured. Used by Permission.\u201cStairway to the Stars\u201d by Mitchell Parish, Matt Malneck, and Frank Signorelli, Copyright 1939. Renewed 1967 Robbins Music Corporation. Rights assigned to CBS Catalog Partnership. All Rights Controlled and Administered by CBS Robbins Catalog Inc. All Rights Reserved. International Copyright Secured. Used by Permission.Library of Congress Cataloging in Publication DataDoctorow, E. L.World\u2019s fair : a novel \/ E. L. Doctorowp."
+    },
+    {
+        "idx":10,
+        "content_name":"$60m collection of rare cars and sneakers going on auction.txt",
+        "content_type":"news",
+        "content_owner":"BBC",
+        "content_year":"2024",
+        "content_path":"raw_data\/source_text\/news\/BBC\/$60m collection of rare cars and sneakers going on auction.txt",
+        "copyright_notice":"Copyright 2024 BBC. All rights reserved."
+    },
+    {
+        "idx":11,
+        "content_name":"Boeing must show 'systemic change' after latest crisis, says regulator.txt",
+        "content_type":"news",
+        "content_owner":"BBC",
+        "content_year":"2024",
+        "content_path":"raw_data\/source_text\/news\/BBC\/Boeing must show 'systemic change' after latest crisis, says regulator.txt",
+        "copyright_notice":"Copyright 2024 BBC. All rights reserved."
+    },
+    {
+        "idx":12,
+        "content_name":"Prostate cancer hopes raised after at-home spit test trials.txt",
+        "content_type":"news",
+        "content_owner":"BBC",
+        "content_year":"2024",
+        "content_path":"raw_data\/source_text\/news\/BBC\/Prostate cancer hopes raised after at-home spit test trials.txt",
+        "copyright_notice":"Copyright 2024 BBC. All rights reserved."
+    },
+    {
+        "idx":13,
+        "content_name":"Turkey's new Mesopotamia Express takes visitors through the country's rich history.txt",
+        "content_type":"news",
+        "content_owner":"BBC",
+        "content_year":"2024",
+        "content_path":"raw_data\/source_text\/news\/BBC\/Turkey's new Mesopotamia Express takes visitors through the country's rich history.txt",
+        "copyright_notice":"Copyright 2024 BBC. All rights reserved."
+    },
+    {
+        "idx":14,
+        "content_name":"Wordle locked in legal row with geography spinoff, Worldle.txt",
+        "content_type":"news",
+        "content_owner":"BBC",
+        "content_year":"2024",
+        "content_path":"raw_data\/source_text\/news\/BBC\/Wordle locked in legal row with geography spinoff, Worldle.txt",
+        "copyright_notice":"Copyright 2024 BBC. All rights reserved."
+    },
+    {
+        "idx":15,
+        "content_name":"Bruhat Soma Electric Tiebreaking Performance Earns Spelling Bee Championship - The New York Times.txt",
+        "content_type":"news",
+        "content_owner":"NYT",
+        "content_year":"2024",
+        "content_path":"raw_data\/source_text\/news\/NYT\/Bruhat Soma Electric Tiebreaking Performance Earns Spelling Bee Championship - The New York Times.txt",
+        "copyright_notice":"\u00a9 2024 The New York Times Company"
+    },
+    {
+        "idx":16,
+        "content_name":"Fox News and MSNBC Notch Rating Wins After Trump Verdict - The New York Times.txt",
+        "content_type":"news",
+        "content_owner":"NYT",
+        "content_year":"2024",
+        "content_path":"raw_data\/source_text\/news\/NYT\/Fox News and MSNBC Notch Rating Wins After Trump Verdict - The New York Times.txt",
+        "copyright_notice":"\u00a9 2024 The New York Times Company"
+    },
+    {
+        "idx":17,
+        "content_name":"Google A.I. Search Leaves Publishers Scrambling - The New York Times.txt",
+        "content_type":"news",
+        "content_owner":"NYT",
+        "content_year":"2024",
+        "content_path":"raw_data\/source_text\/news\/NYT\/Google A.I. Search Leaves Publishers Scrambling - The New York Times.txt",
+        "copyright_notice":"\u00a9 2024 The New York Times Company"
+    },
+    {
+        "idx":18,
+        "content_name":"Minnesota Democrats Call on State Senator Charged With Burglary to Resign - The New York Times.txt",
+        "content_type":"news",
+        "content_owner":"NYT",
+        "content_year":"2024",
+        "content_path":"raw_data\/source_text\/news\/NYT\/Minnesota Democrats Call on State Senator Charged With Burglary to Resign - The New York Times.txt",
+        "copyright_notice":"\u00a9 2024 The New York Times Company"
+    },
+    {
+        "idx":19,
+        "content_name":"The Only Ice Cream Recipe You'll Ever Need - The New York Times.txt",
+        "content_type":"news",
+        "content_owner":"NYT",
+        "content_year":"2024",
+        "content_path":"raw_data\/source_text\/news\/NYT\/The Only Ice Cream Recipe You'll Ever Need - The New York Times.txt",
+        "copyright_notice":"\u00a9 2024 The New York Times Company"
+    },
+    {
+        "idx":20,
+        "content_name":"Cleaner shipping fuel is contributing to ocean warming, scientists say _ Reuters.txt",
+        "content_type":"news",
+        "content_owner":"Reuters",
+        "content_year":"2024",
+        "content_path":"raw_data\/source_text\/news\/Reuters\/Cleaner shipping fuel is contributing to ocean warming, scientists say _ Reuters.txt",
+        "copyright_notice":"\u00a9 2024 Reuters. All rights reserved"
+    },
+    {
+        "idx":21,
+        "content_name":"House Dems urge NLRB probe of Google's alleged union busting _ Reuters.txt",
+        "content_type":"news",
+        "content_owner":"Reuters",
+        "content_year":"2024",
+        "content_path":"raw_data\/source_text\/news\/Reuters\/House Dems urge NLRB probe of Google's alleged union busting _ Reuters.txt",
+        "copyright_notice":"\u00a9 2024 Reuters. All rights reserved"
+    },
+    {
+        "idx":22,
+        "content_name":"PwC to become OpenAI's largest enterprise customer amid genAI boom _ Reuters.txt",
+        "content_type":"news",
+        "content_owner":"Reuters",
+        "content_year":"2024",
+        "content_path":"raw_data\/source_text\/news\/Reuters\/PwC to become OpenAI's largest enterprise customer amid genAI boom _ Reuters.txt",
+        "copyright_notice":"\u00a9 2024 Reuters. All rights reserved"
+    },
+    {
+        "idx":23,
+        "content_name":"Robots play soccer at Geneva AI showcase _ Reuters.txt",
+        "content_type":"news",
+        "content_owner":"Reuters",
+        "content_year":"2024",
+        "content_path":"raw_data\/source_text\/news\/Reuters\/Robots play soccer at Geneva AI showcase _ Reuters.txt",
+        "copyright_notice":"\u00a9 2024 Reuters. All rights reserved"
+    },
+    {
+        "idx":24,
+        "content_name":"Wegovy maker Novo Nordisk sues nine spas, clinics and pharmacies over copycat drugs _ Reuters.txt",
+        "content_type":"news",
+        "content_owner":"Reuters",
+        "content_year":"2024",
+        "content_path":"raw_data\/source_text\/news\/Reuters\/Wegovy maker Novo Nordisk sues nine spas, clinics and pharmacies over copycat drugs _ Reuters.txt",
+        "copyright_notice":"\u00a9 2024 Reuters. All rights reserved"
+    },
+    {
+        "idx":25,
+        "content_name":"amp_examples.rst.txt",
+        "content_type":"doc",
+        "content_owner":null,
+        "content_year":"old",
+        "content_path":"raw_data\/source_text\/doc\/amp_examples.rst.txt",
+        "copyright_notice":"\u00a9 Copyright 2023, PyTorch Contributors.\r\n"
+    },
+    {
+        "idx":26,
+        "content_name":"BERT.txt",
+        "content_type":"doc",
+        "content_owner":null,
+        "content_year":"old",
+        "content_path":"raw_data\/source_text\/doc\/BERT.txt",
+        "copyright_notice":"Copyright 2018- The Hugging Face team. All rights reserved."
+    },
+    {
+        "idx":27,
+        "content_name":"functional_api_tf.txt",
+        "content_type":"doc",
+        "content_owner":null,
+        "content_year":"old",
+        "content_path":"raw_data\/source_text\/doc\/functional_api_tf.txt",
+        "copyright_notice":"Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and\/or its affiliates.\r\n"
+    },
+    {
+        "idx":28,
+        "content_name":"pandas.read_json \u2014 pandas 2.2.2 documentation.txt",
+        "content_type":"doc",
+        "content_owner":null,
+        "content_year":"old",
+        "content_path":"raw_data\/source_text\/doc\/pandas.read_json \u2014 pandas 2.2.2 documentation.txt",
+        "copyright_notice":"\u00a9 2024, pandas via NumFOCUS, Inc. Hosted by OVHcloud."
+    },
+    {
+        "idx":29,
+        "content_name":"The N-dimensional array (ndarray) \u2014 NumPy v1.26 Manual.txt",
+        "content_type":"doc",
+        "content_owner":null,
+        "content_year":"old",
+        "content_path":"raw_data\/source_text\/doc\/The N-dimensional array (ndarray) \u2014 NumPy v1.26 Manual.txt",
+        "copyright_notice":"\u00a9 Copyright 2008-2022 NumPy. All rights reserved."
+    },
+    {
+        "idx":30,
+        "content_name":"3 10 to Yuma_0381849.txt",
+        "content_type":"scripts",
+        "content_owner":null,
+        "content_year":"old",
+        "content_path":"raw_data\/source_text\/scripts\/3 10 to Yuma_0381849.txt",
+        "copyright_notice":"Tree Line Film Copyright 2006"
+    },
+    {
+        "idx":31,
+        "content_name":"About Time_2194499.txt",
+        "content_type":"scripts",
+        "content_owner":null,
+        "content_year":"old",
+        "content_path":"raw_data\/source_text\/scripts\/About Time_2194499.txt",
+        "copyright_notice":"\u00a9 2012 Working Title Films Limited. All Rights Reserved."
+    },
+    {
+        "idx":32,
+        "content_name":"Being Human_0106379.txt",
+        "content_type":"scripts",
+        "content_owner":null,
+        "content_year":"old",
+        "content_path":"raw_data\/source_text\/scripts\/Being Human_0106379.txt",
+        "copyright_notice":"\u00a9 1992 WARNER BROS. INC. All Rights Reserved"
+    },
+    {
+        "idx":33,
+        "content_name":"Big Trouble in Little China_0090728.txt",
+        "content_type":"scripts",
+        "content_owner":null,
+        "content_year":"old",
+        "content_path":"raw_data\/source_text\/scripts\/Big Trouble in Little China_0090728.txt",
+        "copyright_notice":"Copyright \u00a9 1995\n Registered WGA,w\n All Rights Reserved"
+    },
+    {
+        "idx":34,
+        "content_name":"Black Hawk Down_0265086.txt",
+        "content_type":"scripts",
+        "content_owner":null,
+        "content_year":"old",
+        "content_path":"raw_data\/source_text\/scripts\/Black Hawk Down_0265086.txt",
+        "copyright_notice":"Copyright \u00a9 2002\n by Revolution Studios"
+    },
+    {
+        "idx":35,
+        "content_name":"Body Bags_0106449.txt",
+        "content_type":"scripts",
+        "content_owner":null,
+        "content_year":"old",
+        "content_path":"raw_data\/source_text\/scripts\/Body Bags_0106449.txt",
+        "copyright_notice":"Copyright \u00a92001 David Ghesmete"
+    },
+    {
+        "idx":36,
+        "content_name":"Ender s Game_1731141.txt",
+        "content_type":"scripts",
+        "content_owner":null,
+        "content_year":"old",
+        "content_path":"raw_data\/source_text\/scripts\/Ender s Game_1731141.txt",
+        "copyright_notice":"Copyright \u00a9 1999 by Orson Scott Card All rights reserved"
+    },
+    {
+        "idx":37,
+        "content_name":"Enough Said_2390361.txt",
+        "content_type":"scripts",
+        "content_owner":null,
+        "content_year":"old",
+        "content_path":"raw_data\/source_text\/scripts\/Enough Said_2390361.txt",
+        "copyright_notice":"\u00a9 2012 WILLOW AND OAK, INC. ALL RIGHTS RESERVED. NO PORTION OF THIS SCRIPT MAY BE\n PERFORMED, PUBLISHED, REPRODUCED, SOLD OR DISTRIBUTED BY ANY MEANS, OR QUOTED OR\n PUBLISHED IN ANY MEDIUM, INCLUDING ANY WEB SITE, WITHOUT THE PRIOR WRITTEN CONSENT\n OF WILLOW AND OAK, INC. DISPOSAL OF THIS SCRIPT COPY DOES NOT ALTER ANY OF THE\n RESTRICTIONS SET FORTH ABOVE."
+    },
+    {
+        "idx":38,
+        "content_name":"Finding Nemo_0266543.txt",
+        "content_type":"scripts",
+        "content_owner":null,
+        "content_year":"old",
+        "content_path":"raw_data\/source_text\/scripts\/Finding Nemo_0266543.txt",
+        "copyright_notice":"Copyright 2003 Walt Disney Pictures, Pixar Animation Studios"
+    },
+    {
+        "idx":39,
+        "content_name":"Gone Girl_2267998.txt",
+        "content_type":"scripts",
+        "content_owner":null,
+        "content_year":"old",
+        "content_path":"raw_data\/source_text\/scripts\/Gone Girl_2267998.txt",
+        "copyright_notice":"ALL RIGHTS RESERVED. COPYRIGHT \u00a92014 TWENTIETH CENTURY FOX FILM\n CORPORATION. NO PORTION OF THIS SCRIPT MAY BE PERFORMED, PUBLISHED,\n REPRODUCED, SOLD OR DISTRIBUTED BY ANY MEANS, OR QUOTED OR PUBLISHED\n IN ANY MEDIUM, INCLUDING ON ANY WEB SITE, WITHOUT THE PRIOR WRITTEN\n CONSENT OF TWENTIETH CENTURY FOX FILM CORPORATION. DISPOSAL OF THIS\n SCRIPT COPY DOES NOT ALTER ANY OF THE RESTRICTIONS SET FORTH ABOVE."
+    }
+]

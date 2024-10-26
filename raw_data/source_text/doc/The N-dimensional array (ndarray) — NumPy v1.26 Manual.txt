@@ -1,0 +1,2105 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)https://numpy.org/doc/1.26/reference/arrays.ndarray.html -->
+<html lang="en" data-mode="light" data-theme="light"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/">
+
+    <title>The N-dimensional array (ndarray) — NumPy v1.26 Manual</title>
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
+
+  <!-- Loaded before other Sphinx assets -->
+  <link href="./The N-dimensional array (ndarray) — NumPy v1.26 Manual_files/theme.css" rel="stylesheet">
+<link href="./The N-dimensional array (ndarray) — NumPy v1.26 Manual_files/pydata-sphinx-theme.css" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="./The N-dimensional array (ndarray) — NumPy v1.26 Manual_files/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin="" href="https://numpy.org/doc/1.26/_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin="" href="https://numpy.org/doc/1.26/_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="./The N-dimensional array (ndarray) — NumPy v1.26 Manual_files/pygments.css">
+    <link rel="stylesheet" type="text/css" href="./The N-dimensional array (ndarray) — NumPy v1.26 Manual_files/graphviz.css">
+    <link rel="stylesheet" type="text/css" href="./The N-dimensional array (ndarray) — NumPy v1.26 Manual_files/plot_directive.css">
+    <link rel="stylesheet" type="text/css" href="./The N-dimensional array (ndarray) — NumPy v1.26 Manual_files/design-style.4045f2051d55cab465a707391d5b2007.min.css">
+    <link rel="stylesheet" type="text/css" href="./The N-dimensional array (ndarray) — NumPy v1.26 Manual_files/numpy.css">
+
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="./The N-dimensional array (ndarray) — NumPy v1.26 Manual_files/pydata-sphinx-theme.js.download">
+
+    <script data-url_root="../" id="documentation_options" src="./The N-dimensional array (ndarray) — NumPy v1.26 Manual_files/documentation_options.js.download"></script>
+    <script src="./The N-dimensional array (ndarray) — NumPy v1.26 Manual_files/jquery.js.download"></script>
+    <script src="./The N-dimensional array (ndarray) — NumPy v1.26 Manual_files/underscore.js.download"></script>
+    <script src="./The N-dimensional array (ndarray) — NumPy v1.26 Manual_files/_sphinx_javascript_frameworks_compat.js.download"></script>
+    <script src="./The N-dimensional array (ndarray) — NumPy v1.26 Manual_files/doctools.js.download"></script><script type="text/javascript" src="./The N-dimensional array (ndarray) — NumPy v1.26 Manual_files/versionwarning.js.download"></script>
+    <script src="./The N-dimensional array (ndarray) — NumPy v1.26 Manual_files/sphinx_highlight.js.download"></script>
+    <script src="./The N-dimensional array (ndarray) — NumPy v1.26 Manual_files/design-tabs.js.download"></script>
+    <script async="async" src="./The N-dimensional array (ndarray) — NumPy v1.26 Manual_files/MathJax.js.download"></script>
+    <link rel="shortcut icon" href="https://numpy.org/doc/1.26/_static/favicon.ico">
+    <link rel="index" title="Index" href="https://numpy.org/doc/1.26/genindex.html">
+    <link rel="search" title="Search" href="https://numpy.org/doc/1.26/search.html">
+    <link rel="next" title="numpy.ndarray" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.html">
+    <link rel="prev" title="Array objects" href="https://numpy.org/doc/1.26/reference/arrays.html">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="docsearch:language" content="en">
+  <link rel="canonical" href="https://numpy.org/doc/stable/reference/arrays.ndarray.html"><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">.MathJax_SVG_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax_SVG .MJX-monospace {font-family: monospace}
+.MathJax_SVG .MJX-sans-serif {font-family: sans-serif}
+#MathJax_SVG_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax_SVG {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax_SVG * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.mjx-svg-href {fill: blue; stroke: blue}
+.MathJax_SVG_Processing {visibility: hidden; position: absolute; top: 0; left: 0; width: 0; height: 0; overflow: hidden; display: block!important}
+.MathJax_SVG_Processed {display: none!important}
+.MathJax_SVG_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0}
+.MathJax_SVG_LineBox {display: table!important}
+.MathJax_SVG_LineBox span {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax_SVG .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light" data-new-gr-c-s-check-loaded="14.1176.0" data-gr-ext-installed=""><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_SVG_Hidden"></div><svg><defs id="MathJax_SVG_glyphs"><path stroke-width="1" id="MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path stroke-width="1" id="MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path stroke-width="1" id="MJMAIN-2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path><path stroke-width="1" id="MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="1" id="MJMAIN-2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"></path><path stroke-width="1" id="MJMATHI-4E" d="M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"></path><path stroke-width="1" id="MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path stroke-width="1" id="MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path><path stroke-width="1" id="MJMAIN-6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z"></path><path stroke-width="1" id="MJMAIN-66" d="M273 0Q255 3 146 3Q43 3 34 0H26V46H42Q70 46 91 49Q99 52 103 60Q104 62 104 224V385H33V431H104V497L105 564L107 574Q126 639 171 668T266 704Q267 704 275 704T289 705Q330 702 351 679T372 627Q372 604 358 590T321 576T284 590T270 627Q270 647 288 667H284Q280 668 273 668Q245 668 223 647T189 592Q183 572 182 497V431H293V385H185V225Q185 63 186 61T189 57T194 54T199 51T206 49T213 48T222 47T231 47T241 46T251 46H282V0H273Z"></path><path stroke-width="1" id="MJMAIN-73" d="M295 316Q295 356 268 385T190 414Q154 414 128 401Q98 382 98 349Q97 344 98 336T114 312T157 287Q175 282 201 278T245 269T277 256Q294 248 310 236T342 195T359 133Q359 71 321 31T198 -10H190Q138 -10 94 26L86 19L77 10Q71 4 65 -1L54 -11H46H42Q39 -11 33 -5V74V132Q33 153 35 157T45 162H54Q66 162 70 158T75 146T82 119T101 77Q136 26 198 26Q295 26 295 104Q295 133 277 151Q257 175 194 187T111 210Q75 227 54 256T33 318Q33 357 50 384T93 424T143 442T187 447H198Q238 447 268 432L283 424L292 431Q302 440 314 448H322H326Q329 448 335 442V310L329 304H301Q295 310 295 316Z"></path><path stroke-width="1" id="MJMAIN-65" d="M28 218Q28 273 48 318T98 391T163 433T229 448Q282 448 320 430T378 380T406 316T415 245Q415 238 408 231H126V216Q126 68 226 36Q246 30 270 30Q312 30 342 62Q359 79 369 104L379 128Q382 131 395 131H398Q415 131 415 121Q415 117 412 108Q393 53 349 21T250 -11Q155 -11 92 58T28 218ZM333 275Q322 403 238 411H236Q228 411 220 410T195 402T166 381T143 340T127 274V267H333V275Z"></path><path stroke-width="1" id="MJMAIN-74" d="M27 422Q80 426 109 478T141 600V615H181V431H316V385H181V241Q182 116 182 100T189 68Q203 29 238 29Q282 29 292 100Q293 108 293 146V181H333V146V134Q333 57 291 17Q264 -10 221 -10Q187 -10 162 2T124 33T105 68T98 100Q97 107 97 248V385H18V422H27Z"></path><path stroke-width="1" id="MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path stroke-width="1" id="MJSZ2-2211" d="M60 948Q63 950 665 950H1267L1325 815Q1384 677 1388 669H1348L1341 683Q1320 724 1285 761Q1235 809 1174 838T1033 881T882 898T699 902H574H543H251L259 891Q722 258 724 252Q725 250 724 246Q721 243 460 -56L196 -356Q196 -357 407 -357Q459 -357 548 -357T676 -358Q812 -358 896 -353T1063 -332T1204 -283T1307 -196Q1328 -170 1348 -124H1388Q1388 -125 1381 -145T1356 -210T1325 -294L1267 -449L666 -450Q64 -450 61 -448Q55 -446 55 -439Q55 -437 57 -433L590 177Q590 178 557 222T452 366T322 544L56 909L55 924Q55 945 60 948Z"></path><path stroke-width="1" id="MJMATHI-6B" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path><path stroke-width="1" id="MJMATHI-73" d="M131 289Q131 321 147 354T203 415T300 442Q362 442 390 415T419 355Q419 323 402 308T364 292Q351 292 340 300T328 326Q328 342 337 354T354 372T367 378Q368 378 368 379Q368 382 361 388T336 399T297 405Q249 405 227 379T204 326Q204 301 223 291T278 274T330 259Q396 230 396 163Q396 135 385 107T352 51T289 7T195 -10Q118 -10 86 19T53 87Q53 126 74 143T118 160Q133 160 146 151T160 120Q160 94 142 76T111 58Q109 57 108 57T107 55Q108 52 115 47T146 34T201 27Q237 27 263 38T301 66T318 97T323 122Q323 150 302 164T254 181T195 196T148 231Q131 256 131 289Z"></path><path stroke-width="1" id="MJMAIN-63" d="M370 305T349 305T313 320T297 358Q297 381 312 396Q317 401 317 402T307 404Q281 408 258 408Q209 408 178 376Q131 329 131 219Q131 137 162 90Q203 29 272 29Q313 29 338 55T374 117Q376 125 379 127T395 129H409Q415 123 415 120Q415 116 411 104T395 71T366 33T318 2T249 -11Q163 -11 99 53T34 214Q34 318 99 383T250 448T370 421T404 357Q404 334 387 320Z"></path><path stroke-width="1" id="MJMAIN-6C" d="M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"></path><path stroke-width="1" id="MJMAIN-75" d="M383 58Q327 -10 256 -10H249Q124 -10 105 89Q104 96 103 226Q102 335 102 348T96 369Q86 385 36 385H25V408Q25 431 27 431L38 432Q48 433 67 434T105 436Q122 437 142 438T172 441T184 442H187V261Q188 77 190 64Q193 49 204 40Q224 26 264 26Q290 26 311 35T343 58T363 90T375 120T379 144Q379 145 379 161T380 201T380 248V315Q380 361 370 372T320 385H302V431Q304 431 378 436T457 442H464V264Q464 84 465 81Q468 61 479 55T524 46H542V0Q540 0 467 -5T390 -11H383V58Z"></path><path stroke-width="1" id="MJMAIN-6D" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q351 442 364 440T387 434T406 426T421 417T432 406T441 395T448 384T452 374T455 366L457 361L460 365Q463 369 466 373T475 384T488 397T503 410T523 422T546 432T572 439T603 442Q729 442 740 329Q741 322 741 190V104Q741 66 743 59T754 49Q775 46 803 46H819V0H811L788 1Q764 2 737 2T699 3Q596 3 587 0H579V46H595Q656 46 656 62Q657 64 657 200Q656 335 655 343Q649 371 635 385T611 402T585 404Q540 404 506 370Q479 343 472 315T464 232V168V108Q464 78 465 68T468 55T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path><path stroke-width="1" id="MJMAIN-6E" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q450 438 463 329Q464 322 464 190V104Q464 66 466 59T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path><path stroke-width="1" id="MJMAIN-69" d="M69 609Q69 637 87 653T131 669Q154 667 171 652T188 609Q188 579 171 564T129 549Q104 549 87 564T69 609ZM247 0Q232 3 143 3Q132 3 106 3T56 1L34 0H26V46H42Q70 46 91 49Q100 53 102 60T104 102V205V293Q104 345 102 359T88 378Q74 385 41 385H30V408Q30 431 32 431L42 432Q52 433 70 434T106 436Q123 437 142 438T171 441T182 442H185V62Q190 52 197 50T232 46H255V0H247Z"></path><path stroke-width="1" id="MJMAIN-7A" d="M42 263Q44 270 48 345T53 423V431H393Q399 425 399 415Q399 403 398 402L381 378Q364 355 331 309T265 220L134 41L182 40H206Q254 40 283 46T331 77Q352 105 359 185L361 201Q361 202 381 202H401V196Q401 195 393 103T384 6V0H209L34 1L31 3Q28 8 28 17Q28 30 29 31T160 210T294 394H236Q169 393 152 388Q127 382 113 367Q89 344 82 264V255H42V263Z"></path><path stroke-width="1" id="MJSZ2-220F" d="M220 812Q220 813 218 819T214 829T208 840T199 853T185 866T166 878T140 887T107 893T66 896H56V950H1221V896H1211Q1080 896 1058 812V-311Q1076 -396 1211 -396H1221V-450H725V-396H735Q864 -396 888 -314Q889 -312 889 -311V896H388V292L389 -311Q405 -396 542 -396H552V-450H56V-396H66Q195 -396 219 -314Q220 -312 220 -311V812Z"></path><path stroke-width="1" id="MJMATHI-6A" d="M297 596Q297 627 318 644T361 661Q378 661 389 651T403 623Q403 595 384 576T340 557Q322 557 310 567T297 596ZM288 376Q288 405 262 405Q240 405 220 393T185 362T161 325T144 293L137 279Q135 278 121 278H107Q101 284 101 286T105 299Q126 348 164 391T252 441Q253 441 260 441T272 442Q296 441 316 432Q341 418 354 401T367 348V332L318 133Q267 -67 264 -75Q246 -125 194 -164T75 -204Q25 -204 7 -183T-12 -137Q-12 -110 7 -91T53 -71Q70 -71 82 -81T95 -112Q95 -148 63 -167Q69 -168 77 -168Q111 -168 139 -140T182 -74L193 -32Q204 11 219 72T251 197T278 308T289 365Q289 372 288 376Z"></path><path stroke-width="1" id="MJMATHI-64" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path><path stroke-width="1" id="MJMAIN-72" d="M36 46H50Q89 46 97 60V68Q97 77 97 91T98 122T98 161T98 203Q98 234 98 269T98 328L97 351Q94 370 83 376T38 385H20V408Q20 431 22 431L32 432Q42 433 60 434T96 436Q112 437 131 438T160 441T171 442H174V373Q213 441 271 441H277Q322 441 343 419T364 373Q364 352 351 337T313 322Q288 322 276 338T263 372Q263 381 265 388T270 400T273 405Q271 407 250 401Q234 393 226 386Q179 341 179 207V154Q179 141 179 127T179 101T180 81T180 66V61Q181 59 183 57T188 54T193 51T200 49T207 48T216 47T225 47T235 46T245 46H276V0H267Q249 3 140 3Q37 3 28 0H20V46H36Z"></path><path stroke-width="1" id="MJMAIN-77" d="M90 368Q84 378 76 380T40 385H18V431H24L43 430Q62 430 84 429T116 428Q206 428 221 431H229V385H215Q177 383 177 368Q177 367 221 239L265 113L339 328L333 345Q323 374 316 379Q308 384 278 385H258V431H264Q270 428 348 428Q439 428 454 431H461V385H452Q404 385 404 369Q404 366 418 324T449 234T481 143L496 100L537 219Q579 341 579 347Q579 363 564 373T530 385H522V431H529Q541 428 624 428Q692 428 698 431H703V385H697Q696 385 691 385T682 384Q635 377 619 334L559 161Q546 124 528 71Q508 12 503 1T487 -11H479Q460 -11 456 -4Q455 -3 407 133L361 267Q359 263 266 -4Q261 -11 243 -11H238Q225 -11 220 -3L90 368Z"></path><path stroke-width="1" id="MJMAIN-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></defs></svg></div><div id="MathJax_Message" style="display: none;"></div>
+    <div class="bd-header-announcement container-fluid" id="banner">
+      
+
+    </div>
+
+    
+    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="https://numpy.org/doc/1.26/index.html">
+  
+  
+  
+  
+    <img src="./The N-dimensional array (ndarray) — NumPy v1.26 Manual_files/numpylogo.svg" class="logo__image only-light" alt="Logo image">
+    <img src="./The N-dimensional array (ndarray) — NumPy v1.26 Manual_files/numpylogo_dark.svg" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="fas fa-bars"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="https://numpy.org/doc/1.26/user/index.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="https://numpy.org/doc/1.26/reference/index.html">
+  API reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="https://numpy.org/doc/1.26/dev/index.html">
+  Development
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="https://numpy.org/doc/1.26/release.html">
+  Release notes
+ </a>
+</li>
+
+    
+    <li class="nav-item">
+        <a class="nav-link nav-external" href="https://numpy.org/numpy-tutorials/">Learn<i class="fas fa-external-link-alt"></i></a>
+    </li>
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
+        <div class="dropdown" id="version_switcher">
+    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown" data-active-version-name="" data-active-version="">
+        1.26  <!-- this text may get changed later by javascript -->
+        <span class="caret"></span>
+    </button>
+    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
+    <!-- dropdown will be populated by javascript on page load -->
+    <a class="list-group-item list-group-item-action py-1" href="https://numpy.org/devdocs/reference/arrays.ndarray.html" data-version-name="dev" data-version="devdocs">dev</a><a class="list-group-item list-group-item-action py-1" href="https://numpy.org/doc/stable/reference/arrays.ndarray.html" data-version-name="1.26 (stable)" data-version="doc/1.26">1.26 (stable)</a><a class="list-group-item list-group-item-action py-1" href="https://numpy.org/doc/1.25/reference/arrays.ndarray.html" data-version-name="1.25" data-version="doc/1.25">1.25</a><a class="list-group-item list-group-item-action py-1" href="https://numpy.org/doc/1.24/reference/arrays.ndarray.html" data-version-name="1.24" data-version="doc/1.24">1.24</a><a class="list-group-item list-group-item-action py-1" href="https://numpy.org/doc/1.23/reference/arrays.ndarray.html" data-version-name="1.23" data-version="doc/1.23">1.23</a><a class="list-group-item list-group-item-action py-1" href="https://numpy.org/doc/1.22/reference/arrays.ndarray.html" data-version-name="1.22" data-version="1.22">1.22</a><a class="list-group-item list-group-item-action py-1" href="https://numpy.org/doc/1.21/reference/arrays.ndarray.html" data-version-name="1.21" data-version="1.21">1.21</a><a class="list-group-item list-group-item-action py-1" href="https://numpy.org/doc/1.20/reference/arrays.ndarray.html" data-version-name="1.20" data-version="1.20">1.20</a><a class="list-group-item list-group-item-action py-1" href="https://numpy.org/doc/1.19/reference/arrays.ndarray.html" data-version-name="1.19" data-version="1.19">1.19</a><a class="list-group-item list-group-item-action py-1" href="https://numpy.org/doc/1.18/reference/arrays.ndarray.html" data-version-name="1.18" data-version="1.18">1.18</a><a class="list-group-item list-group-item-action py-1" href="https://numpy.org/doc/1.17/reference/arrays.ndarray.html" data-version-name="1.17" data-version="1.17">1.17</a><a class="list-group-item list-group-item-action py-1" href="https://numpy.org/doc/1.16/reference/arrays.ndarray.html" data-version-name="1.16" data-version="1.16">1.16</a><a class="list-group-item list-group-item-action py-1" href="https://numpy.org/doc/1.15/reference/arrays.ndarray.html" data-version-name="1.15" data-version="1.15">1.15</a><a class="list-group-item list-group-item-action py-1" href="https://numpy.org/doc/1.14/reference/arrays.ndarray.html" data-version-name="1.14" data-version="1.14">1.14</a><a class="list-group-item list-group-item-action py-1" href="https://numpy.org/doc/1.13/reference/arrays.ndarray.html" data-version-name="1.13" data-version="1.13">1.13</a></div>
+</div>
+
+<!-- NOTE: this JS must live here (not in our global JS file) because it relies
+     on being processed by Jinja before it is run (specifically for replacing
+     variables reference/arrays.ndarray and {'version_match': '1.26', 'json_url': 'https://numpy.org/doc/_static/versions.json'}.
+-->
+
+<script type="text/javascript">
+// Check if corresponding page path exists in other version of docs
+// and, if so, go there instead of the homepage of the other docs version
+function checkPageExistsAndRedirect(event) {
+    const currentFilePath = "reference/arrays.ndarray.html",
+          tryUrl = event.target.getAttribute("href");
+    let otherDocsHomepage = tryUrl.replace(currentFilePath, "");
+    $.ajax({
+        type: 'HEAD',
+        url: tryUrl,
+        // if the page exists, go there
+        success: function() {
+            location.href = tryUrl;
+        }
+    }).fail(function() {
+        location.href = otherDocsHomepage;
+    });
+    // this prevents the browser from following the href of the clicked node
+    // (which is fine because this function takes care of redirecting)
+    return false;
+}
+
+// Populate the version switcher from the JSON config file
+(function () {
+    $.getJSON("https://numpy.org/doc/_static/versions.json", function(data, textStatus, jqXHR) {
+        const currentFilePath = "reference/arrays.ndarray.html";
+        let btn = document.getElementById("version_switcher_button");
+        // Set empty strings by default so that these attributes exist and can be used in CSS selectors
+        btn.dataset["activeVersionName"] = "";
+        btn.dataset["activeVersion"] = "";
+        // create links to the corresponding page in the other docs versions
+        $.each(data, function(index, entry) {
+            // if no custom name specified (e.g., "latest"), use version string
+            if (!("name" in entry)) {
+                entry.name = entry.version;
+            }
+            // create the node
+            const node = document.createElement("a");
+            node.setAttribute("class", "list-group-item list-group-item-action py-1");
+            node.textContent = `${entry.name}`;
+            node.setAttribute("href", `${entry.url}${currentFilePath}`);
+            // on click, AJAX calls will check if the linked page exists before
+            // trying to redirect, and if not, will redirect to the homepage
+            // for that version of the docs.
+            node.onclick = checkPageExistsAndRedirect;
+            // Add dataset values for the version and name in case people want
+            // to apply CSS styling based on this information.
+            node.dataset["versionName"] = entry.name;
+            node.dataset["version"] = entry.version;
+
+            $("#version_switcher_menu").append(node);
+            // replace dropdown button text with the preferred display name of
+            // this version, rather than using sphinx's 1.26 variable.
+            // also highlight the dropdown entry for the currently-viewed
+            // version's entry
+            if (entry.version == "1.26") {
+                node.classList.add("active");
+                btn.innerText = btn.dataset["activeVersionName"] = entry.name;
+                btn.dataset["activeVersion"] = entry.version;
+            }
+        });
+    });
+})();
+</script>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/numpy/numpy" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/numpy_team" rel="noopener" target="_blank" title="Twitter"><span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="bd-container container-xl">
+      <div class="bd-container__inner row">
+          
+
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
+  <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="https://numpy.org/doc/1.26/search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="https://numpy.org/doc/1.26/reference/arrays.html">
+   Array objects
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox">
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
+    <a class="current reference internal" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#">
+     The N-dimensional array (
+     <code class="xref py py-class docutils literal notranslate">
+      <span class="pre">
+       ndarray
+      </span>
+     </code>
+     )
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox">
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.html">
+       numpy.ndarray
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.flags.html">
+       numpy.ndarray.flags
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.shape.html">
+       numpy.ndarray.shape
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.strides.html">
+       numpy.ndarray.strides
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.ndim.html">
+       numpy.ndarray.ndim
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.data.html">
+       numpy.ndarray.data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.size.html">
+       numpy.ndarray.size
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.itemsize.html">
+       numpy.ndarray.itemsize
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.nbytes.html">
+       numpy.ndarray.nbytes
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.base.html">
+       numpy.ndarray.base
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.dtype.html">
+       numpy.ndarray.dtype
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.T.html">
+       numpy.ndarray.T
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.real.html">
+       numpy.ndarray.real
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.imag.html">
+       numpy.ndarray.imag
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.flat.html">
+       numpy.ndarray.flat
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.ctypes.html">
+       numpy.ndarray.ctypes
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.item.html">
+       numpy.ndarray.item
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.tolist.html">
+       numpy.ndarray.tolist
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.itemset.html">
+       numpy.ndarray.itemset
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.tostring.html">
+       numpy.ndarray.tostring
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.tobytes.html">
+       numpy.ndarray.tobytes
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.tofile.html">
+       numpy.ndarray.tofile
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.dump.html">
+       numpy.ndarray.dump
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.dumps.html">
+       numpy.ndarray.dumps
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.astype.html">
+       numpy.ndarray.astype
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.byteswap.html">
+       numpy.ndarray.byteswap
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.copy.html">
+       numpy.ndarray.copy
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.view.html">
+       numpy.ndarray.view
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.getfield.html">
+       numpy.ndarray.getfield
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.setflags.html">
+       numpy.ndarray.setflags
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.fill.html">
+       numpy.ndarray.fill
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.reshape.html">
+       numpy.ndarray.reshape
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.resize.html">
+       numpy.ndarray.resize
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.transpose.html">
+       numpy.ndarray.transpose
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.swapaxes.html">
+       numpy.ndarray.swapaxes
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.flatten.html">
+       numpy.ndarray.flatten
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.ravel.html">
+       numpy.ndarray.ravel
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.squeeze.html">
+       numpy.ndarray.squeeze
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.take.html">
+       numpy.ndarray.take
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.put.html">
+       numpy.ndarray.put
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.repeat.html">
+       numpy.ndarray.repeat
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.choose.html">
+       numpy.ndarray.choose
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.sort.html">
+       numpy.ndarray.sort
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.argsort.html">
+       numpy.ndarray.argsort
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.partition.html">
+       numpy.ndarray.partition
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.argpartition.html">
+       numpy.ndarray.argpartition
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.searchsorted.html">
+       numpy.ndarray.searchsorted
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.nonzero.html">
+       numpy.ndarray.nonzero
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.compress.html">
+       numpy.ndarray.compress
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.diagonal.html">
+       numpy.ndarray.diagonal
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.max.html">
+       numpy.ndarray.max
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.argmax.html">
+       numpy.ndarray.argmax
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.min.html">
+       numpy.ndarray.min
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.argmin.html">
+       numpy.ndarray.argmin
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.ptp.html">
+       numpy.ndarray.ptp
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.clip.html">
+       numpy.ndarray.clip
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.conj.html">
+       numpy.ndarray.conj
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.round.html">
+       numpy.ndarray.round
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.trace.html">
+       numpy.ndarray.trace
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.sum.html">
+       numpy.ndarray.sum
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.cumsum.html">
+       numpy.ndarray.cumsum
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.mean.html">
+       numpy.ndarray.mean
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.var.html">
+       numpy.ndarray.var
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.std.html">
+       numpy.ndarray.std
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.prod.html">
+       numpy.ndarray.prod
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.cumprod.html">
+       numpy.ndarray.cumprod
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.all.html">
+       numpy.ndarray.all
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.any.html">
+       numpy.ndarray.any
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__lt__.html">
+       numpy.ndarray.__lt__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__le__.html">
+       numpy.ndarray.__le__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__gt__.html">
+       numpy.ndarray.__gt__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__ge__.html">
+       numpy.ndarray.__ge__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__eq__.html">
+       numpy.ndarray.__eq__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__ne__.html">
+       numpy.ndarray.__ne__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__bool__.html">
+       numpy.ndarray.__bool__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__neg__.html">
+       numpy.ndarray.__neg__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__pos__.html">
+       numpy.ndarray.__pos__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__abs__.html">
+       numpy.ndarray.__abs__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__invert__.html">
+       numpy.ndarray.__invert__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__add__.html">
+       numpy.ndarray.__add__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__sub__.html">
+       numpy.ndarray.__sub__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__mul__.html">
+       numpy.ndarray.__mul__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__truediv__.html">
+       numpy.ndarray.__truediv__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__floordiv__.html">
+       numpy.ndarray.__floordiv__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__mod__.html">
+       numpy.ndarray.__mod__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__divmod__.html">
+       numpy.ndarray.__divmod__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__pow__.html">
+       numpy.ndarray.__pow__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__lshift__.html">
+       numpy.ndarray.__lshift__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__rshift__.html">
+       numpy.ndarray.__rshift__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__and__.html">
+       numpy.ndarray.__and__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__or__.html">
+       numpy.ndarray.__or__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__xor__.html">
+       numpy.ndarray.__xor__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__iadd__.html">
+       numpy.ndarray.__iadd__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__isub__.html">
+       numpy.ndarray.__isub__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__imul__.html">
+       numpy.ndarray.__imul__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__itruediv__.html">
+       numpy.ndarray.__itruediv__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__ifloordiv__.html">
+       numpy.ndarray.__ifloordiv__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__imod__.html">
+       numpy.ndarray.__imod__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__ipow__.html">
+       numpy.ndarray.__ipow__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__ilshift__.html">
+       numpy.ndarray.__ilshift__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__irshift__.html">
+       numpy.ndarray.__irshift__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__iand__.html">
+       numpy.ndarray.__iand__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__ior__.html">
+       numpy.ndarray.__ior__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__ixor__.html">
+       numpy.ndarray.__ixor__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__matmul__.html">
+       numpy.ndarray.__matmul__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__copy__.html">
+       numpy.ndarray.__copy__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__deepcopy__.html">
+       numpy.ndarray.__deepcopy__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__reduce__.html">
+       numpy.ndarray.__reduce__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__setstate__.html">
+       numpy.ndarray.__setstate__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__new__.html">
+       numpy.ndarray.__new__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__array__.html">
+       numpy.ndarray.__array__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__array_wrap__.html">
+       numpy.ndarray.__array_wrap__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__len__.html">
+       numpy.ndarray.__len__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__getitem__.html">
+       numpy.ndarray.__getitem__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__setitem__.html">
+       numpy.ndarray.__setitem__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__contains__.html">
+       numpy.ndarray.__contains__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__int__.html">
+       numpy.ndarray.__int__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__float__.html">
+       numpy.ndarray.__float__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__complex__.html">
+       numpy.ndarray.__complex__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__str__.html">
+       numpy.ndarray.__str__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__repr__.html">
+       numpy.ndarray.__repr__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__class_getitem__.html">
+       numpy.ndarray.__class_getitem__
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="https://numpy.org/doc/1.26/reference/arrays.scalars.html">
+     Scalars
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="https://numpy.org/doc/1.26/reference/arrays.dtypes.html">
+     Data type objects (
+     <code class="xref py py-class docutils literal notranslate">
+      <span class="pre">
+       dtype
+      </span>
+     </code>
+     )
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="https://numpy.org/doc/1.26/reference/arrays.indexing.html">
+     Indexing routines
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="https://numpy.org/doc/1.26/reference/arrays.nditer.html">
+     Iterating over arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="https://numpy.org/doc/1.26/reference/arrays.classes.html">
+     Standard array subclasses
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="https://numpy.org/doc/1.26/reference/maskedarray.html">
+     Masked arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="https://numpy.org/doc/1.26/reference/arrays.interface.html">
+     The array interface protocol
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="https://numpy.org/doc/1.26/reference/arrays.datetime.html">
+     Datetimes and Timedeltas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="https://numpy.org/doc/1.26/reference/array_api.html">
+   Array API Standard Compatibility
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="https://numpy.org/doc/1.26/reference/constants.html">
+   Constants
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="https://numpy.org/doc/1.26/reference/ufuncs.html">
+   Universal functions (
+   <code class="xref py py-class docutils literal notranslate">
+    <span class="pre">
+     ufunc
+    </span>
+   </code>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="https://numpy.org/doc/1.26/reference/routines.html">
+   Routines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="https://numpy.org/doc/1.26/reference/typing.html">
+   Typing (
+   <code class="xref py py-mod docutils literal notranslate">
+    <span class="pre">
+     numpy.typing
+    </span>
+   </code>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="https://numpy.org/doc/1.26/reference/global_state.html">
+   Global state
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="https://numpy.org/doc/1.26/reference/distutils.html">
+   Packaging (
+   <code class="xref py py-mod docutils literal notranslate">
+    <span class="pre">
+     numpy.distutils
+    </span>
+   </code>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="https://numpy.org/doc/1.26/reference/distutils_guide.html">
+   NumPy distutils - users guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="https://numpy.org/doc/1.26/reference/distutils_status_migration.html">
+   Status of
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     numpy.distutils
+    </span>
+   </code>
+   and migration advice
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="https://numpy.org/doc/1.26/reference/c-api/index.html">
+   NumPy C-API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="https://numpy.org/doc/1.26/reference/simd/index.html">
+   CPU/SIMD Optimizations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="https://numpy.org/doc/1.26/reference/security.html">
+   NumPy security
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="https://numpy.org/doc/1.26/reference/swig.html">
+   NumPy and SWIG
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+  </div>
+  <div class="sidebar-end-items">
+  </div>
+</div>
+
+
+          
+
+
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+  
+    
+    <div class="toc-item">
+      
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#constructing-arrays">
+   Constructing arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#indexing-arrays">
+   Indexing arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#internal-memory-layout-of-an-ndarray">
+   Internal memory layout of an ndarray
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#array-attributes">
+   Array attributes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#id1">
+     Memory layout
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#data-type">
+     Data type
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#other-attributes">
+     Other attributes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#array-interface">
+     Array interface
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#ctypes-foreign-function-interface">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ctypes
+      </span>
+     </code>
+     foreign function interface
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry active">
+  <a class="reference internal nav-link active" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#array-methods">
+   Array methods
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#array-conversion">
+     Array conversion
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#shape-manipulation">
+     Shape manipulation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry active">
+    <a class="reference internal nav-link active" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#item-selection-and-manipulation">
+     Item selection and manipulation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#calculation">
+     Calculation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#arithmetic-matrix-multiplication-and-comparison-operations">
+   Arithmetic, matrix multiplication, and comparison operations
+  </a>
+  <ul class="nav section-nav flex-column">
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#special-methods">
+   Special methods
+  </a>
+  <ul class="nav section-nav flex-column">
+  </ul>
+ </li>
+</ul>
+
+</nav>
+    </div>
+    
+    <div class="toc-item">
+      
+    </div>
+    
+  
+</div>
+
+
+          
+          
+          <div class="bd-content col-12 col-md-9 col-xl-7">
+              
+              <article class="bd-article" role="main">
+                
+  <section id="the-n-dimensional-array-ndarray">
+<span id="arrays-ndarray"></span><h1>The N-dimensional array (<a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>)<a class="headerlink" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#the-n-dimensional-array-ndarray" title="Permalink to this heading">#</a></h1>
+<p>An <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a> is a (usually fixed-size) multidimensional
+container of items of the same type and size. The number of dimensions
+and items in an array is defined by its <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.shape.html#numpy.ndarray.shape" title="numpy.ndarray.shape"><code class="xref py py-attr docutils literal notranslate"><span class="pre">shape</span></code></a>,
+which is a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> of <em>N</em> non-negative integers that specify the
+sizes of each dimension. The type of items in the array is specified by
+a separate <a class="reference internal" href="https://numpy.org/doc/1.26/reference/arrays.dtypes.html#arrays-dtypes"><span class="std std-ref">data-type object (dtype)</span></a>, one of which
+is associated with each ndarray.</p>
+<p>As with other container objects in Python, the contents of an
+<a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a> can be accessed and modified by <a class="reference internal" href="https://numpy.org/doc/1.26/reference/arrays.indexing.html#arrays-indexing"><span class="std std-ref">indexing or
+slicing</span></a> the array (using, for example, <em>N</em> integers),
+and via the methods and attributes of the <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>.</p>
+<p id="index-0">Different <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarrays</span></code></a> can share the same data, so that
+changes made in one <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a> may be visible in another. That
+is, an ndarray can be a <em>“view”</em> to another ndarray, and the data it
+is referring to is taken care of by the <em>“base”</em> ndarray. ndarrays can
+also be views to memory owned by Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">strings</span></code></a> or
+objects implementing the <code class="xref py py-class docutils literal notranslate"><span class="pre">buffer</span></code> or <a class="reference internal" href="https://numpy.org/doc/1.26/reference/arrays.interface.html#arrays-interface"><span class="std std-ref">array</span></a> interfaces.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>A 2-dimensional array of size 2 x 3, composed of 4-byte integer
+elements:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]],</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">&lt;class 'numpy.ndarray'&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(2, 3)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">dtype</span>
+<span class="go">dtype('int32')</span>
+</pre></div>
+</div>
+<p>The array can be indexed using Python container-like syntax:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># The element of x in the *second* row, *third* column, namely, 6.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="go">6</span>
+</pre></div>
+</div>
+<p>For example <a class="reference internal" href="https://numpy.org/doc/1.26/reference/arrays.indexing.html#arrays-indexing"><span class="std std-ref">slicing</span></a> can produce views of
+the array:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">array([2, 5], dtype=int32)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9</span> <span class="c1"># this also changes the corresponding element in x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">array([9, 5], dtype=int32)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">array([[1, 9, 3],</span>
+<span class="go">       [4, 5, 6]], dtype=int32)</span>
+</pre></div>
+</div>
+</div>
+<section id="constructing-arrays">
+<h2>Constructing arrays<a class="headerlink" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#constructing-arrays" title="Permalink to this heading">#</a></h2>
+<p>New arrays can be constructed using the routines detailed in
+<a class="reference internal" href="https://numpy.org/doc/1.26/reference/routines.array-creation.html#routines-array-creation"><span class="std std-ref">Array creation routines</span></a>, and also by using the low-level
+<a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a> constructor:</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a>(shape[,&nbsp;dtype,&nbsp;buffer,&nbsp;offset,&nbsp;...])</p></td>
+<td><p>An array object represents a multidimensional, homogeneous array of fixed-size items.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="indexing-arrays">
+<span id="arrays-ndarray-indexing"></span><h2>Indexing arrays<a class="headerlink" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#indexing-arrays" title="Permalink to this heading">#</a></h2>
+<p>Arrays can be indexed using an extended Python slicing syntax,
+<code class="docutils literal notranslate"><span class="pre">array[selection]</span></code>.  Similar syntax is also used for accessing
+fields in a <a class="reference internal" href="https://numpy.org/doc/1.26/glossary.html#term-structured-data-type"><span class="xref std std-term">structured data type</span></a>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/arrays.indexing.html#arrays-indexing"><span class="std std-ref">Array Indexing</span></a>.</p>
+</div>
+</section>
+<section id="internal-memory-layout-of-an-ndarray">
+<span id="memory-layout"></span><h2>Internal memory layout of an ndarray<a class="headerlink" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#internal-memory-layout-of-an-ndarray" title="Permalink to this heading">#</a></h2>
+<p>An instance of class <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a> consists of a contiguous
+one-dimensional segment of computer memory (owned by the array, or by
+some other object), combined with an indexing scheme that maps <em>N</em>
+integers into the location of an item in the block.  The ranges in
+which the indices can vary is specified by the <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.shape.html#numpy.ndarray.shape" title="numpy.ndarray.shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape</span></code></a> of the array. How many bytes each item takes and how
+the bytes are interpreted is defined by the <a class="reference internal" href="https://numpy.org/doc/1.26/reference/arrays.dtypes.html#arrays-dtypes"><span class="std std-ref">data-type object</span></a> associated with the array.</p>
+<p id="index-1">A segment of memory is inherently 1-dimensional, and there are many
+different schemes for arranging the items of an <em>N</em>-dimensional array
+in a 1-dimensional block. NumPy is flexible, and <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>
+objects can accommodate any <em>strided indexing scheme</em>. In a strided
+scheme, the N-dimensional index <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax_SVG" id="MathJax-Element-1-Frame" tabindex="0" style="font-size: 100%; display: inline-block; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mo&gt;.&lt;/mo&gt;&lt;mo&gt;.&lt;/mo&gt;&lt;mo&gt;.&lt;/mo&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;N&lt;/mi&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/msub&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="18.098ex" height="2.748ex" viewBox="0 -859.5 7792 1183.1" role="img" focusable="false" style="vertical-align: -0.752ex;" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use href="#MJMAIN-28" x="0" y="0"></use><g transform="translate(389,0)"><use href="#MJMATHI-6E" x="0" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-30" x="849" y="-213"></use></g><use href="#MJMAIN-2C" x="1443" y="0"></use><g transform="translate(1889,0)"><use href="#MJMATHI-6E" x="0" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-31" x="849" y="-213"></use></g><use href="#MJMAIN-2C" x="2943" y="0"></use><use href="#MJMAIN-2E" x="3388" y="0"></use><use href="#MJMAIN-2E" x="3833" y="0"></use><use href="#MJMAIN-2E" x="4278" y="0"></use><use href="#MJMAIN-2C" x="4724" y="0"></use><g transform="translate(5169,0)"><use href="#MJMATHI-6E" x="0" y="0"></use><g transform="translate(600,-150)"><use transform="scale(0.707)" href="#MJMATHI-4E" x="0" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-2212" x="888" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-31" x="1667" y="0"></use></g></g><use href="#MJMAIN-29" x="7402" y="0"></use></g></svg><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><msub><mi>n</mi><mn>0</mn></msub><mo>,</mo><msub><mi>n</mi><mn>1</mn></msub><mo>,</mo><mo>.</mo><mo>.</mo><mo>.</mo><mo>,</mo><msub><mi>n</mi><mrow class="MJX-TeXAtom-ORD"><mi>N</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-1">(n_0, n_1, ..., n_{N-1})</script></span>
+corresponds to the offset (in bytes):</p>
+<div class="math notranslate nohighlight">
+<span class="MathJax_Preview" style="color: inherit; display: none;"></span><div class="MathJax_SVG_Display" style="text-align: center;"><span class="MathJax_SVG" id="MathJax-Element-2-Frame" tabindex="0" style="font-size: 100%; display: inline-block; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;msub&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;o&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;f&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;f&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;s&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;e&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;t&lt;/mi&gt;&lt;/mrow&gt;&lt;/mrow&gt;&lt;/msub&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;munderover&gt;&lt;mo&gt;&amp;#x2211;&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;N&lt;/mi&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/munderover&gt;&lt;msub&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;/msub&gt;&lt;msub&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="17.398ex" height="7.229ex" viewBox="0 -1824.3 7490.8 3112.6" role="img" focusable="false" style="vertical-align: -2.992ex;" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use href="#MJMATHI-6E" x="0" y="0"></use><g transform="translate(600,-155)"><use transform="scale(0.707)" href="#MJMAIN-6F" x="0" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-66" x="500" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-66" x="873" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-73" x="1245" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-65" x="1640" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-74" x="2084" y="0"></use></g><use href="#MJMAIN-3D" x="2727" y="0"></use><g transform="translate(3783,0)"><use href="#MJSZ2-2211" x="44" y="0"></use><g transform="translate(129,-1110)"><use transform="scale(0.707)" href="#MJMATHI-6B" x="0" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-3D" x="521" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-30" x="1300" y="0"></use></g><g transform="translate(0,1151)"><use transform="scale(0.707)" href="#MJMATHI-4E" x="0" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-2212" x="888" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-31" x="1667" y="0"></use></g></g><g transform="translate(5483,0)"><use href="#MJMATHI-73" x="0" y="0"></use><use transform="scale(0.707)" href="#MJMATHI-6B" x="663" y="-213"></use></g><g transform="translate(6421,0)"><use href="#MJMATHI-6E" x="0" y="0"></use><use transform="scale(0.707)" href="#MJMATHI-6B" x="849" y="-213"></use></g></g></svg><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><msub><mi>n</mi><mrow class="MJX-TeXAtom-ORD"><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="normal">o</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">t</mi></mrow></mrow></msub><mo>=</mo><munderover><mo>∑</mo><mrow class="MJX-TeXAtom-ORD"><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mrow class="MJX-TeXAtom-ORD"><mi>N</mi><mo>−</mo><mn>1</mn></mrow></munderover><msub><mi>s</mi><mi>k</mi></msub><msub><mi>n</mi><mi>k</mi></msub></math></span></span></div><script type="math/tex; mode=display" id="MathJax-Element-2">n_{\mathrm{offset}} = \sum_{k=0}^{N-1} s_k n_k</script></div>
+<p>from the beginning of the memory block associated with the
+array. Here, <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax_SVG" id="MathJax-Element-3-Frame" tabindex="0" style="font-size: 100%; display: inline-block; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.179ex" height="1.752ex" viewBox="0 -538 938.3 754.3" role="img" focusable="false" style="vertical-align: -0.503ex;" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use href="#MJMATHI-73" x="0" y="0"></use><use transform="scale(0.707)" href="#MJMATHI-6B" x="663" y="-213"></use></g></svg><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>s</mi><mi>k</mi></msub></math></span></span><script type="math/tex" id="MathJax-Element-3">s_k</script></span> are integers which specify the <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.strides.html#numpy.ndarray.strides" title="numpy.ndarray.strides"><code class="xref py py-obj docutils literal notranslate"><span class="pre">strides</span></code></a> of the array. The <a class="reference internal" href="https://numpy.org/doc/1.26/glossary.html#term-column-major"><span class="xref std std-term">column-major</span></a> order (used,
+for example, in the Fortran language and in <em>Matlab</em>) and
+<a class="reference internal" href="https://numpy.org/doc/1.26/glossary.html#term-row-major"><span class="xref std std-term">row-major</span></a> order (used in C) schemes are just specific kinds of
+strided scheme, and correspond to memory that can be <em>addressed</em> by the strides:</p>
+<div class="math notranslate nohighlight">
+<span class="MathJax_Preview" style="color: inherit; display: none;"></span><div class="MathJax_SVG_Display" style="text-align: center;"><span class="MathJax_SVG" id="MathJax-Element-4-Frame" tabindex="0" style="font-size: 100%; display: inline-block; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;msubsup&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;c&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;o&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;l&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;u&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;m&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;n&lt;/mi&gt;&lt;/mrow&gt;&lt;/mrow&gt;&lt;/msubsup&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;i&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;t&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;e&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;m&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;s&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;i&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;z&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;e&lt;/mi&gt;&lt;/mrow&gt;&lt;munderover&gt;&lt;mo&gt;&amp;#x220F;&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/munderover&gt;&lt;msub&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mspace width=&quot;1em&quot; /&gt;&lt;msubsup&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;r&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;o&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;w&lt;/mi&gt;&lt;/mrow&gt;&lt;/mrow&gt;&lt;/msubsup&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;i&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;t&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;e&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;m&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;s&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;i&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;z&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;e&lt;/mi&gt;&lt;/mrow&gt;&lt;munderover&gt;&lt;mo&gt;&amp;#x220F;&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;N&lt;/mi&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/munderover&gt;&lt;msub&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;.&lt;/mo&gt;&lt;/math&gt;" role="presentation"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="50.668ex" height="7.603ex" viewBox="0 -1824.3 21815.5 3273.4" role="img" focusable="false" style="vertical-align: -3.366ex;" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use href="#MJMATHI-73" x="0" y="0"></use><g transform="translate(469,353)"><use transform="scale(0.707)" href="#MJMAIN-63" x="0" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-6F" x="444" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-6C" x="945" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-75" x="1223" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-6D" x="1780" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-6E" x="2613" y="0"></use></g><use transform="scale(0.707)" href="#MJMATHI-6B" x="663" y="-463"></use><use href="#MJMAIN-3D" x="3088" y="0"></use><g transform="translate(4145,0)"><use href="#MJMAIN-69" x="0" y="0"></use><use href="#MJMAIN-74" x="278" y="0"></use><use href="#MJMAIN-65" x="668" y="0"></use><use href="#MJMAIN-6D" x="1112" y="0"></use><use href="#MJMAIN-73" x="1946" y="0"></use><use href="#MJMAIN-69" x="2340" y="0"></use><use href="#MJMAIN-7A" x="2619" y="0"></use><use href="#MJMAIN-65" x="3063" y="0"></use></g><g transform="translate(7819,0)"><use href="#MJSZ2-220F" x="0" y="0"></use><g transform="translate(41,-1090)"><use transform="scale(0.707)" href="#MJMATHI-6A" x="0" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-3D" x="412" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-30" x="1191" y="0"></use></g><g transform="translate(2,1151)"><use transform="scale(0.707)" href="#MJMATHI-6B" x="0" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-2212" x="521" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-31" x="1300" y="0"></use></g></g><g transform="translate(9264,0)"><use href="#MJMATHI-64" x="0" y="0"></use><use transform="scale(0.707)" href="#MJMATHI-6A" x="736" y="-213"></use></g><use href="#MJMAIN-2C" x="10177" y="0"></use><g transform="translate(11622,0)"><use href="#MJMATHI-73" x="0" y="0"></use><g transform="translate(469,352)"><use transform="scale(0.707)" href="#MJMAIN-72" x="0" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-6F" x="392" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-77" x="892" y="0"></use></g><use transform="scale(0.707)" href="#MJMATHI-6B" x="663" y="-463"></use></g><use href="#MJMAIN-3D" x="13611" y="0"></use><g transform="translate(14668,0)"><use href="#MJMAIN-69" x="0" y="0"></use><use href="#MJMAIN-74" x="278" y="0"></use><use href="#MJMAIN-65" x="668" y="0"></use><use href="#MJMAIN-6D" x="1112" y="0"></use><use href="#MJMAIN-73" x="1946" y="0"></use><use href="#MJMAIN-69" x="2340" y="0"></use><use href="#MJMAIN-7A" x="2619" y="0"></use><use href="#MJMAIN-65" x="3063" y="0"></use></g><g transform="translate(18342,0)"><use href="#MJSZ2-220F" x="418" y="0"></use><g transform="translate(0,-1110)"><use transform="scale(0.707)" href="#MJMATHI-6A" x="0" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-3D" x="412" y="0"></use><use transform="scale(0.707)" href="#MJMATHI-6B" x="1191" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-2B" x="1712" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-31" x="2491" y="0"></use></g><g transform="translate(291,1151)"><use transform="scale(0.707)" href="#MJMATHI-4E" x="0" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-2212" x="888" y="0"></use><use transform="scale(0.707)" href="#MJMAIN-31" x="1667" y="0"></use></g></g><g transform="translate(20624,0)"><use href="#MJMATHI-64" x="0" y="0"></use><use transform="scale(0.707)" href="#MJMATHI-6A" x="736" y="-213"></use></g><use href="#MJMAIN-2E" x="21536" y="0"></use></g></svg><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><msubsup><mi>s</mi><mi>k</mi><mrow class="MJX-TeXAtom-ORD"><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="normal">c</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">n</mi></mrow></mrow></msubsup><mo>=</mo><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="normal">i</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">z</mi><mi mathvariant="normal">e</mi></mrow><munderover><mo>∏</mo><mrow class="MJX-TeXAtom-ORD"><mi>j</mi><mo>=</mo><mn>0</mn></mrow><mrow class="MJX-TeXAtom-ORD"><mi>k</mi><mo>−</mo><mn>1</mn></mrow></munderover><msub><mi>d</mi><mi>j</mi></msub><mo>,</mo><mspace width="1em"></mspace><msubsup><mi>s</mi><mi>k</mi><mrow class="MJX-TeXAtom-ORD"><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="normal">r</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">w</mi></mrow></mrow></msubsup><mo>=</mo><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="normal">i</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">z</mi><mi mathvariant="normal">e</mi></mrow><munderover><mo>∏</mo><mrow class="MJX-TeXAtom-ORD"><mi>j</mi><mo>=</mo><mi>k</mi><mo>+</mo><mn>1</mn></mrow><mrow class="MJX-TeXAtom-ORD"><mi>N</mi><mo>−</mo><mn>1</mn></mrow></munderover><msub><mi>d</mi><mi>j</mi></msub><mo>.</mo></math></span></span></div><script type="math/tex; mode=display" id="MathJax-Element-4">s_k^{\mathrm{column}} = \mathrm{itemsize} \prod_{j=0}^{k-1} d_j ,
+\quad  s_k^{\mathrm{row}} = \mathrm{itemsize} \prod_{j=k+1}^{N-1} d_j .</script></div>
+<p id="index-2">where <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax_SVG" id="MathJax-Element-5-Frame" tabindex="0" style="font-size: 100%; display: inline-block; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.119ex" height="2.623ex" viewBox="0 -752.3 912.2 1129.5" role="img" focusable="false" style="vertical-align: -0.876ex;" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use href="#MJMATHI-64" x="0" y="0"></use><use transform="scale(0.707)" href="#MJMATHI-6A" x="736" y="-213"></use></g></svg><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>d</mi><mi>j</mi></msub></math></span></span><script type="math/tex" id="MathJax-Element-5">d_j</script></span> <em class="xref py py-obj">= self.shape[j]</em>.</p>
+<p>Both the C and Fortran orders are <a class="reference internal" href="https://numpy.org/doc/1.26/glossary.html#term-contiguous"><span class="xref std std-term">contiguous</span></a>, <em>i.e.,</em>
+single-segment, memory layouts, in which every part of the
+memory block can be accessed by some combination of the indices.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><em class="xref py py-obj">Contiguous arrays</em> and <em class="xref py py-obj">single-segment arrays</em> are synonymous
+and are used interchangeably throughout the documentation.</p>
+</div>
+<p>While a C-style and Fortran-style contiguous array, which has the corresponding
+flags set, can be addressed with the above strides, the actual strides may be
+different. This can happen in two cases:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">self.shape[k]</span> <span class="pre">==</span> <span class="pre">1</span></code> then for any legal index <code class="docutils literal notranslate"><span class="pre">index[k]</span> <span class="pre">==</span> <span class="pre">0</span></code>.
+This means that in the formula for the offset <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax_SVG" id="MathJax-Element-6-Frame" tabindex="0" style="font-size: 100%; display: inline-block; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/math&gt;" role="presentation"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="6.744ex" height="2.25ex" viewBox="0 -752.3 2903.8 968.7" role="img" focusable="false" style="vertical-align: -0.503ex;" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use href="#MJMATHI-6E" x="0" y="0"></use><use transform="scale(0.707)" href="#MJMATHI-6B" x="849" y="-213"></use><use href="#MJMAIN-3D" x="1347" y="0"></use><use href="#MJMAIN-30" x="2403" y="0"></use></g></svg><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>n</mi><mi>k</mi></msub><mo>=</mo><mn>0</mn></math></span></span><script type="math/tex" id="MathJax-Element-6">n_k = 0</script></span> and thus
+<span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax_SVG" id="MathJax-Element-7-Frame" tabindex="0" style="font-size: 100%; display: inline-block; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;/msub&gt;&lt;msub&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/math&gt;" role="presentation"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="8.924ex" height="2.25ex" viewBox="0 -752.3 3842.1 968.7" role="img" focusable="false" style="vertical-align: -0.503ex;" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use href="#MJMATHI-73" x="0" y="0"></use><use transform="scale(0.707)" href="#MJMATHI-6B" x="663" y="-213"></use><g transform="translate(938,0)"><use href="#MJMATHI-6E" x="0" y="0"></use><use transform="scale(0.707)" href="#MJMATHI-6B" x="849" y="-213"></use></g><use href="#MJMAIN-3D" x="2285" y="0"></use><use href="#MJMAIN-30" x="3341" y="0"></use></g></svg><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>s</mi><mi>k</mi></msub><msub><mi>n</mi><mi>k</mi></msub><mo>=</mo><mn>0</mn></math></span></span><script type="math/tex" id="MathJax-Element-7">s_k n_k = 0</script></span> and the value of <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax_SVG" id="MathJax-Element-8-Frame" tabindex="0" style="font-size: 100%; display: inline-block; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.179ex" height="1.752ex" viewBox="0 -538 938.3 754.3" role="img" focusable="false" style="vertical-align: -0.503ex;" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use href="#MJMATHI-73" x="0" y="0"></use><use transform="scale(0.707)" href="#MJMATHI-6B" x="663" y="-213"></use></g></svg><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>s</mi><mi>k</mi></msub></math></span></span><script type="math/tex" id="MathJax-Element-8">s_k</script></span> <em class="xref py py-obj">= self.strides[k]</em> is
+arbitrary.</p></li>
+<li><p>If an array has no elements (<code class="docutils literal notranslate"><span class="pre">self.size</span> <span class="pre">==</span> <span class="pre">0</span></code>) there is no legal
+index and the strides are never used. Any array with no elements may be
+considered C-style and Fortran-style contiguous.</p></li>
+</ol>
+</div></blockquote>
+<p>Point 1. means that <code class="docutils literal notranslate"><span class="pre">self</span></code> and <code class="docutils literal notranslate"><span class="pre">self.squeeze()</span></code> always have the same
+contiguity and <code class="docutils literal notranslate"><span class="pre">aligned</span></code> flags value. This also means
+that even a high dimensional array could be C-style and Fortran-style
+contiguous at the same time.</p>
+<p id="index-3">An array is considered aligned if the memory offsets for all elements and the
+base offset itself is a multiple of <em class="xref py py-obj">self.itemsize</em>. Understanding
+<em class="xref py py-obj">memory-alignment</em> leads to better performance on most hardware.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It does <em>not</em> generally hold that <code class="docutils literal notranslate"><span class="pre">self.strides[-1]</span> <span class="pre">==</span> <span class="pre">self.itemsize</span></code>
+for C-style contiguous arrays or <code class="docutils literal notranslate"><span class="pre">self.strides[0]</span> <span class="pre">==</span> <span class="pre">self.itemsize</span></code> for
+Fortran-style contiguous arrays is true.</p>
+<p><code class="docutils literal notranslate"><span class="pre">NPY_RELAXED_STRIDES_DEBUG=1</span></code> can be used to help find errors when
+incorrectly relying on the strides in C-extension code (see below warning).</p>
+</div>
+<p>Data in new <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarrays</span></code></a> is in the <a class="reference internal" href="https://numpy.org/doc/1.26/glossary.html#term-row-major"><span class="xref std std-term">row-major</span></a> (C)
+order, unless otherwise specified, but, for example, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/arrays.indexing.html#arrays-indexing"><span class="std std-ref">basic
+array slicing</span></a> often produces <a class="reference internal" href="https://numpy.org/doc/1.26/glossary.html#term-view"><span class="xref std std-term">views</span></a>
+in a different scheme.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Several algorithms in NumPy work on arbitrarily strided arrays.
+However, some algorithms require single-segment arrays. When an
+irregularly strided array is passed in to such algorithms, a copy
+is automatically made.</p>
+</div>
+</section>
+<section id="array-attributes">
+<span id="arrays-ndarray-attributes"></span><h2>Array attributes<a class="headerlink" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#array-attributes" title="Permalink to this heading">#</a></h2>
+<p>Array attributes reflect information that is intrinsic to the array
+itself. Generally, accessing an array through its attributes allows
+you to get and sometimes set intrinsic properties of the array without
+creating a new array. The exposed attributes are the core parts of an
+array and only some of them can be reset meaningfully without creating
+a new array. Information on each attribute is given below.</p>
+<section id="id1">
+<h3>Memory layout<a class="headerlink" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#id1" title="Permalink to this heading">#</a></h3>
+<p>The following attributes contain information about the memory layout
+of the array:</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.flags.html#numpy.ndarray.flags" title="numpy.ndarray.flags"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.flags</span></code></a></p></td>
+<td><p>Information about the memory layout of the array.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.shape.html#numpy.ndarray.shape" title="numpy.ndarray.shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.shape</span></code></a></p></td>
+<td><p>Tuple of array dimensions.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.strides.html#numpy.ndarray.strides" title="numpy.ndarray.strides"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.strides</span></code></a></p></td>
+<td><p>Tuple of bytes to step in each dimension when traversing an array.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.ndim.html#numpy.ndarray.ndim" title="numpy.ndarray.ndim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.ndim</span></code></a></p></td>
+<td><p>Number of array dimensions.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.data.html#numpy.ndarray.data" title="numpy.ndarray.data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.data</span></code></a></p></td>
+<td><p>Python buffer object pointing to the start of the array's data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.size.html#numpy.ndarray.size" title="numpy.ndarray.size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.size</span></code></a></p></td>
+<td><p>Number of elements in the array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.itemsize.html#numpy.ndarray.itemsize" title="numpy.ndarray.itemsize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.itemsize</span></code></a></p></td>
+<td><p>Length of one array element in bytes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.nbytes.html#numpy.ndarray.nbytes" title="numpy.ndarray.nbytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.nbytes</span></code></a></p></td>
+<td><p>Total bytes consumed by the elements of the array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.base.html#numpy.ndarray.base" title="numpy.ndarray.base"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.base</span></code></a></p></td>
+<td><p>Base object if memory is from some other object.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="data-type">
+<h3>Data type<a class="headerlink" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#data-type" title="Permalink to this heading">#</a></h3>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/arrays.dtypes.html#arrays-dtypes"><span class="std std-ref">Data type objects</span></a></p>
+</div>
+<p>The data type object associated with the array can be found in the
+<a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.dtype.html#numpy.ndarray.dtype" title="numpy.ndarray.dtype"><code class="xref py py-attr docutils literal notranslate"><span class="pre">dtype</span></code></a> attribute:</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.dtype.html#numpy.ndarray.dtype" title="numpy.ndarray.dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.dtype</span></code></a></p></td>
+<td><p>Data-type of the array's elements.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="other-attributes">
+<h3>Other attributes<a class="headerlink" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#other-attributes" title="Permalink to this heading">#</a></h3>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.T.html#numpy.ndarray.T" title="numpy.ndarray.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.T</span></code></a></p></td>
+<td><p>View of the transposed array.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.real.html#numpy.ndarray.real" title="numpy.ndarray.real"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.real</span></code></a></p></td>
+<td><p>The real part of the array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.imag.html#numpy.ndarray.imag" title="numpy.ndarray.imag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.imag</span></code></a></p></td>
+<td><p>The imaginary part of the array.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.flat.html#numpy.ndarray.flat" title="numpy.ndarray.flat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.flat</span></code></a></p></td>
+<td><p>A 1-D iterator over the array.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="array-interface">
+<span id="arrays-ndarray-array-interface"></span><h3>Array interface<a class="headerlink" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#array-interface" title="Permalink to this heading">#</a></h3>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/arrays.interface.html#arrays-interface"><span class="std std-ref">The array interface protocol</span></a>.</p>
+</div>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/arrays.interface.html#object.__array_interface__" title="object.__array_interface__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__array_interface__</span></code></a></p></td>
+<td><p>Python-side of the array interface</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/arrays.interface.html#object.__array_struct__" title="object.__array_struct__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__array_struct__</span></code></a></p></td>
+<td><p>C-side of the array interface</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ctypes-foreign-function-interface">
+<h3><a class="reference external" href="https://docs.python.org/3/library/ctypes.html#module-ctypes" title="(in Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ctypes</span></code></a> foreign function interface<a class="headerlink" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#ctypes-foreign-function-interface" title="Permalink to this heading">#</a></h3>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.ctypes.html#numpy.ndarray.ctypes" title="numpy.ndarray.ctypes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.ctypes</span></code></a></p></td>
+<td><p>An object to simplify the interaction of the array with the ctypes module.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="array-methods">
+<span id="array-ndarray-methods"></span><h2>Array methods<a class="headerlink" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#array-methods" title="Permalink to this heading">#</a></h2>
+<p>An <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a> object has many methods which operate on or with
+the array in some fashion, typically returning an array result. These
+methods are briefly explained below. (Each method’s docstring has a
+more complete description.)</p>
+<p>For the following methods there are also corresponding functions in
+<a class="reference internal" href="https://numpy.org/doc/1.26/reference/index.html#module-numpy" title="numpy"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>: <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.all.html#numpy.all" title="numpy.all"><code class="xref py py-func docutils literal notranslate"><span class="pre">all</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.any.html#numpy.any" title="numpy.any"><code class="xref py py-func docutils literal notranslate"><span class="pre">any</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.argmax.html#numpy.argmax" title="numpy.argmax"><code class="xref py py-func docutils literal notranslate"><span class="pre">argmax</span></code></a>,
+<a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.argmin.html#numpy.argmin" title="numpy.argmin"><code class="xref py py-func docutils literal notranslate"><span class="pre">argmin</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.argpartition.html#numpy.argpartition" title="numpy.argpartition"><code class="xref py py-func docutils literal notranslate"><span class="pre">argpartition</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.argsort.html#numpy.argsort" title="numpy.argsort"><code class="xref py py-func docutils literal notranslate"><span class="pre">argsort</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.choose.html#numpy.choose" title="numpy.choose"><code class="xref py py-func docutils literal notranslate"><span class="pre">choose</span></code></a>,
+<a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><code class="xref py py-func docutils literal notranslate"><span class="pre">clip</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.compress.html#numpy.compress" title="numpy.compress"><code class="xref py py-func docutils literal notranslate"><span class="pre">compress</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.copy.html#numpy.copy" title="numpy.copy"><code class="xref py py-func docutils literal notranslate"><span class="pre">copy</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.cumprod.html#numpy.cumprod" title="numpy.cumprod"><code class="xref py py-func docutils literal notranslate"><span class="pre">cumprod</span></code></a>,
+<a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.cumsum.html#numpy.cumsum" title="numpy.cumsum"><code class="xref py py-func docutils literal notranslate"><span class="pre">cumsum</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.diagonal.html#numpy.diagonal" title="numpy.diagonal"><code class="xref py py-func docutils literal notranslate"><span class="pre">diagonal</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.imag.html#numpy.imag" title="numpy.imag"><code class="xref py py-func docutils literal notranslate"><span class="pre">imag</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.amax.html#numpy.amax" title="numpy.amax"><code class="xref py py-func docutils literal notranslate"><span class="pre">max</span></code></a>,
+<a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.mean.html#numpy.mean" title="numpy.mean"><code class="xref py py-func docutils literal notranslate"><span class="pre">mean</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.amin.html#numpy.amin" title="numpy.amin"><code class="xref py py-func docutils literal notranslate"><span class="pre">min</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.nonzero.html#numpy.nonzero" title="numpy.nonzero"><code class="xref py py-func docutils literal notranslate"><span class="pre">nonzero</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.partition.html#numpy.partition" title="numpy.partition"><code class="xref py py-func docutils literal notranslate"><span class="pre">partition</span></code></a>,
+<a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.prod.html#numpy.prod" title="numpy.prod"><code class="xref py py-func docutils literal notranslate"><span class="pre">prod</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ptp.html#numpy.ptp" title="numpy.ptp"><code class="xref py py-func docutils literal notranslate"><span class="pre">ptp</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.put.html#numpy.put" title="numpy.put"><code class="xref py py-func docutils literal notranslate"><span class="pre">put</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ravel.html#numpy.ravel" title="numpy.ravel"><code class="xref py py-func docutils literal notranslate"><span class="pre">ravel</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.real.html#numpy.real" title="numpy.real"><code class="xref py py-func docutils literal notranslate"><span class="pre">real</span></code></a>,
+<a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.repeat.html#numpy.repeat" title="numpy.repeat"><code class="xref py py-func docutils literal notranslate"><span class="pre">repeat</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.reshape.html#numpy.reshape" title="numpy.reshape"><code class="xref py py-func docutils literal notranslate"><span class="pre">reshape</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.around.html#numpy.around" title="numpy.around"><code class="xref py py-func docutils literal notranslate"><span class="pre">round</span></code></a>,
+<a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.searchsorted.html#numpy.searchsorted" title="numpy.searchsorted"><code class="xref py py-func docutils literal notranslate"><span class="pre">searchsorted</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.sort.html#numpy.sort" title="numpy.sort"><code class="xref py py-func docutils literal notranslate"><span class="pre">sort</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.squeeze.html#numpy.squeeze" title="numpy.squeeze"><code class="xref py py-func docutils literal notranslate"><span class="pre">squeeze</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.std.html#numpy.std" title="numpy.std"><code class="xref py py-func docutils literal notranslate"><span class="pre">std</span></code></a>,
+<a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.sum.html#numpy.sum" title="numpy.sum"><code class="xref py py-func docutils literal notranslate"><span class="pre">sum</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.swapaxes.html#numpy.swapaxes" title="numpy.swapaxes"><code class="xref py py-func docutils literal notranslate"><span class="pre">swapaxes</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.take.html#numpy.take" title="numpy.take"><code class="xref py py-func docutils literal notranslate"><span class="pre">take</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.trace.html#numpy.trace" title="numpy.trace"><code class="xref py py-func docutils literal notranslate"><span class="pre">trace</span></code></a>,
+<a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.transpose.html#numpy.transpose" title="numpy.transpose"><code class="xref py py-func docutils literal notranslate"><span class="pre">transpose</span></code></a>, <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.var.html#numpy.var" title="numpy.var"><code class="xref py py-func docutils literal notranslate"><span class="pre">var</span></code></a>.</p>
+<section id="array-conversion">
+<h3>Array conversion<a class="headerlink" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#array-conversion" title="Permalink to this heading">#</a></h3>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.item.html#numpy.ndarray.item" title="numpy.ndarray.item"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.item</span></code></a>(*args)</p></td>
+<td><p>Copy an element of an array to a standard Python scalar and return it.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.tolist.html#numpy.ndarray.tolist" title="numpy.ndarray.tolist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.tolist</span></code></a>()</p></td>
+<td><p>Return the array as an <code class="docutils literal notranslate"><span class="pre">a.ndim</span></code>-levels deep nested list of Python scalars.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.itemset.html#numpy.ndarray.itemset" title="numpy.ndarray.itemset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.itemset</span></code></a>(*args)</p></td>
+<td><p>Insert scalar into an array (scalar is cast to array's dtype, if possible)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.tostring.html#numpy.ndarray.tostring" title="numpy.ndarray.tostring"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.tostring</span></code></a>([order])</p></td>
+<td><p>A compatibility alias for <em class="xref py py-obj">tobytes</em>, with exactly the same behavior.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.tobytes.html#numpy.ndarray.tobytes" title="numpy.ndarray.tobytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.tobytes</span></code></a>([order])</p></td>
+<td><p>Construct Python bytes containing the raw data bytes in the array.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.tofile.html#numpy.ndarray.tofile" title="numpy.ndarray.tofile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.tofile</span></code></a>(fid[,&nbsp;sep,&nbsp;format])</p></td>
+<td><p>Write array to a file as text or binary (default).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.dump.html#numpy.ndarray.dump" title="numpy.ndarray.dump"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.dump</span></code></a>(file)</p></td>
+<td><p>Dump a pickle of the array to the specified file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.dumps.html#numpy.ndarray.dumps" title="numpy.ndarray.dumps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.dumps</span></code></a>()</p></td>
+<td><p>Returns the pickle of the array as a string.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.astype.html#numpy.ndarray.astype" title="numpy.ndarray.astype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.astype</span></code></a>(dtype[,&nbsp;order,&nbsp;casting,&nbsp;...])</p></td>
+<td><p>Copy of the array, cast to a specified type.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.byteswap.html#numpy.ndarray.byteswap" title="numpy.ndarray.byteswap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.byteswap</span></code></a>([inplace])</p></td>
+<td><p>Swap the bytes of the array elements</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.copy.html#numpy.ndarray.copy" title="numpy.ndarray.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.copy</span></code></a>([order])</p></td>
+<td><p>Return a copy of the array.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.view.html#numpy.ndarray.view" title="numpy.ndarray.view"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.view</span></code></a>([dtype][,&nbsp;type])</p></td>
+<td><p>New view of array with the same data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.getfield.html#numpy.ndarray.getfield" title="numpy.ndarray.getfield"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.getfield</span></code></a>(dtype[,&nbsp;offset])</p></td>
+<td><p>Returns a field of the given array as a certain type.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.setflags.html#numpy.ndarray.setflags" title="numpy.ndarray.setflags"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.setflags</span></code></a>([write,&nbsp;align,&nbsp;uic])</p></td>
+<td><p>Set array flags WRITEABLE, ALIGNED, WRITEBACKIFCOPY, respectively.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.fill.html#numpy.ndarray.fill" title="numpy.ndarray.fill"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.fill</span></code></a>(value)</p></td>
+<td><p>Fill the array with a scalar value.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="shape-manipulation">
+<h3>Shape manipulation<a class="headerlink" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#shape-manipulation" title="Permalink to this heading">#</a></h3>
+<p>For reshape, resize, and transpose, the single tuple argument may be
+replaced with <code class="docutils literal notranslate"><span class="pre">n</span></code> integers which will be interpreted as an n-tuple.</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.reshape.html#numpy.ndarray.reshape" title="numpy.ndarray.reshape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.reshape</span></code></a>(shape[,&nbsp;order])</p></td>
+<td><p>Returns an array containing the same data with a new shape.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.resize.html#numpy.ndarray.resize" title="numpy.ndarray.resize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.resize</span></code></a>(new_shape[,&nbsp;refcheck])</p></td>
+<td><p>Change shape and size of array in-place.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.transpose.html#numpy.ndarray.transpose" title="numpy.ndarray.transpose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.transpose</span></code></a>(*axes)</p></td>
+<td><p>Returns a view of the array with axes transposed.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.swapaxes.html#numpy.ndarray.swapaxes" title="numpy.ndarray.swapaxes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.swapaxes</span></code></a>(axis1,&nbsp;axis2)</p></td>
+<td><p>Return a view of the array with <em class="xref py py-obj">axis1</em> and <em class="xref py py-obj">axis2</em> interchanged.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.flatten.html#numpy.ndarray.flatten" title="numpy.ndarray.flatten"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.flatten</span></code></a>([order])</p></td>
+<td><p>Return a copy of the array collapsed into one dimension.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.ravel.html#numpy.ndarray.ravel" title="numpy.ndarray.ravel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.ravel</span></code></a>([order])</p></td>
+<td><p>Return a flattened array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.squeeze.html#numpy.ndarray.squeeze" title="numpy.ndarray.squeeze"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.squeeze</span></code></a>([axis])</p></td>
+<td><p>Remove axes of length one from <em class="xref py py-obj">a</em>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="item-selection-and-manipulation">
+<h3>Item selection and manipulation<a class="headerlink" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#item-selection-and-manipulation" title="Permalink to this heading">#</a></h3>
+<p>For array methods that take an <em>axis</em> keyword, it defaults to
+<em>None</em>. If axis is <em>None</em>, then the array is treated as a 1-D
+array. Any other value for <em>axis</em> represents the dimension along which
+the operation should proceed.</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.take.html#numpy.ndarray.take" title="numpy.ndarray.take"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.take</span></code></a>(indices[,&nbsp;axis,&nbsp;out,&nbsp;mode])</p></td>
+<td><p>Return an array formed from the elements of <em class="xref py py-obj">a</em> at the given indices.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.put.html#numpy.ndarray.put" title="numpy.ndarray.put"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.put</span></code></a>(indices,&nbsp;values[,&nbsp;mode])</p></td>
+<td><p>Set <code class="docutils literal notranslate"><span class="pre">a.flat[n]</span> <span class="pre">=</span> <span class="pre">values[n]</span></code> for all <em class="xref py py-obj">n</em> in indices.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.repeat.html#numpy.ndarray.repeat" title="numpy.ndarray.repeat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.repeat</span></code></a>(repeats[,&nbsp;axis])</p></td>
+<td><p>Repeat elements of an array.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.choose.html#numpy.ndarray.choose" title="numpy.ndarray.choose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.choose</span></code></a>(choices[,&nbsp;out,&nbsp;mode])</p></td>
+<td><p>Use an index array to construct a new array from a set of choices.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.sort.html#numpy.ndarray.sort" title="numpy.ndarray.sort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.sort</span></code></a>([axis,&nbsp;kind,&nbsp;order])</p></td>
+<td><p>Sort an array in-place.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.argsort.html#numpy.ndarray.argsort" title="numpy.ndarray.argsort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.argsort</span></code></a>([axis,&nbsp;kind,&nbsp;order])</p></td>
+<td><p>Returns the indices that would sort this array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.partition.html#numpy.ndarray.partition" title="numpy.ndarray.partition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.partition</span></code></a>(kth[,&nbsp;axis,&nbsp;kind,&nbsp;order])</p></td>
+<td><p>Rearranges the elements in the array in such a way that the value of the element in kth position is in the position it would be in a sorted array.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.argpartition.html#numpy.ndarray.argpartition" title="numpy.ndarray.argpartition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.argpartition</span></code></a>(kth[,&nbsp;axis,&nbsp;kind,&nbsp;order])</p></td>
+<td><p>Returns the indices that would partition this array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.searchsorted.html#numpy.ndarray.searchsorted" title="numpy.ndarray.searchsorted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.searchsorted</span></code></a>(v[,&nbsp;side,&nbsp;sorter])</p></td>
+<td><p>Find indices where elements of v should be inserted in a to maintain order.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.nonzero.html#numpy.ndarray.nonzero" title="numpy.ndarray.nonzero"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.nonzero</span></code></a>()</p></td>
+<td><p>Return the indices of the elements that are non-zero.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.compress.html#numpy.ndarray.compress" title="numpy.ndarray.compress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.compress</span></code></a>(condition[,&nbsp;axis,&nbsp;out])</p></td>
+<td><p>Return selected slices of this array along given axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.diagonal.html#numpy.ndarray.diagonal" title="numpy.ndarray.diagonal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.diagonal</span></code></a>([offset,&nbsp;axis1,&nbsp;axis2])</p></td>
+<td><p>Return specified diagonals.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="calculation">
+<h3>Calculation<a class="headerlink" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#calculation" title="Permalink to this heading">#</a></h3>
+<p id="index-4">Many of these methods take an argument named <em>axis</em>. In such cases,</p>
+<ul class="simple">
+<li><p>If <em>axis</em> is <em>None</em> (the default), the array is treated as a 1-D
+array and the operation is performed over the entire array. This
+behavior is also the default if self is a 0-dimensional array or
+array scalar. (An array scalar is an instance of the types/classes
+float32, float64, etc., whereas a 0-dimensional array is an ndarray
+instance containing precisely one array scalar.)</p></li>
+<li><p>If <em>axis</em> is an integer, then the operation is done over the given
+axis (for each 1-D subarray that can be created along the given axis).</p></li>
+</ul>
+<div class="admonition-example-of-the-axis-argument admonition">
+<p class="admonition-title">Example of the <em>axis</em> argument</p>
+<p>A 3-dimensional array of size 3 x 3 x 3, summed over each of its
+three axes</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">27</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">array([[[ 0,  1,  2],</span>
+<span class="go">        [ 3,  4,  5],</span>
+<span class="go">        [ 6,  7,  8]],</span>
+<span class="go">       [[ 9, 10, 11],</span>
+<span class="go">        [12, 13, 14],</span>
+<span class="go">        [15, 16, 17]],</span>
+<span class="go">       [[18, 19, 20],</span>
+<span class="go">        [21, 22, 23],</span>
+<span class="go">        [24, 25, 26]]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([[27, 30, 33],</span>
+<span class="go">       [36, 39, 42],</span>
+<span class="go">       [45, 48, 51]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># for sum, axis is the first keyword, so we may omit it,</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># specifying only its value</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">(array([[27, 30, 33],</span>
+<span class="go">        [36, 39, 42],</span>
+<span class="go">        [45, 48, 51]]),</span>
+<span class="go"> array([[ 9, 12, 15],</span>
+<span class="go">        [36, 39, 42],</span>
+<span class="go">        [63, 66, 69]]),</span>
+<span class="go"> array([[ 3, 12, 21],</span>
+<span class="go">        [30, 39, 48],</span>
+<span class="go">        [57, 66, 75]]))</span>
+</pre></div>
+</div>
+</div>
+<p>The parameter <em>dtype</em> specifies the data type over which a reduction
+operation (like summing) should take place. The default reduce data
+type is the same as the data type of <em>self</em>. To avoid overflow, it can
+be useful to perform the reduction using a larger data type.</p>
+<p>For several methods, an optional <em>out</em> argument can also be provided
+and the result will be placed into the output array given. The <em>out</em>
+argument must be an <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a> and have the same number of
+elements. It can have a different data type in which case casting will
+be performed.</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.max.html#numpy.ndarray.max" title="numpy.ndarray.max"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.max</span></code></a>([axis,&nbsp;out,&nbsp;keepdims,&nbsp;initial,&nbsp;...])</p></td>
+<td><p>Return the maximum along a given axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.argmax.html#numpy.ndarray.argmax" title="numpy.ndarray.argmax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.argmax</span></code></a>([axis,&nbsp;out,&nbsp;keepdims])</p></td>
+<td><p>Return indices of the maximum values along the given axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.min.html#numpy.ndarray.min" title="numpy.ndarray.min"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.min</span></code></a>([axis,&nbsp;out,&nbsp;keepdims,&nbsp;initial,&nbsp;...])</p></td>
+<td><p>Return the minimum along a given axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.argmin.html#numpy.ndarray.argmin" title="numpy.ndarray.argmin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.argmin</span></code></a>([axis,&nbsp;out,&nbsp;keepdims])</p></td>
+<td><p>Return indices of the minimum values along the given axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.ptp.html#numpy.ndarray.ptp" title="numpy.ndarray.ptp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.ptp</span></code></a>([axis,&nbsp;out,&nbsp;keepdims])</p></td>
+<td><p>Peak to peak (maximum - minimum) value along a given axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.clip.html#numpy.ndarray.clip" title="numpy.ndarray.clip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.clip</span></code></a>([min,&nbsp;max,&nbsp;out])</p></td>
+<td><p>Return an array whose values are limited to <code class="docutils literal notranslate"><span class="pre">[min,</span> <span class="pre">max]</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.conj.html#numpy.ndarray.conj" title="numpy.ndarray.conj"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.conj</span></code></a>()</p></td>
+<td><p>Complex-conjugate all elements.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.round.html#numpy.ndarray.round" title="numpy.ndarray.round"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.round</span></code></a>([decimals,&nbsp;out])</p></td>
+<td><p>Return <em class="xref py py-obj">a</em> with each element rounded to the given number of decimals.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.trace.html#numpy.ndarray.trace" title="numpy.ndarray.trace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.trace</span></code></a>([offset,&nbsp;axis1,&nbsp;axis2,&nbsp;dtype,&nbsp;out])</p></td>
+<td><p>Return the sum along diagonals of the array.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.sum.html#numpy.ndarray.sum" title="numpy.ndarray.sum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.sum</span></code></a>([axis,&nbsp;dtype,&nbsp;out,&nbsp;keepdims,&nbsp;...])</p></td>
+<td><p>Return the sum of the array elements over the given axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.cumsum.html#numpy.ndarray.cumsum" title="numpy.ndarray.cumsum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.cumsum</span></code></a>([axis,&nbsp;dtype,&nbsp;out])</p></td>
+<td><p>Return the cumulative sum of the elements along the given axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.mean.html#numpy.ndarray.mean" title="numpy.ndarray.mean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.mean</span></code></a>([axis,&nbsp;dtype,&nbsp;out,&nbsp;keepdims,&nbsp;where])</p></td>
+<td><p>Returns the average of the array elements along given axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.var.html#numpy.ndarray.var" title="numpy.ndarray.var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.var</span></code></a>([axis,&nbsp;dtype,&nbsp;out,&nbsp;ddof,&nbsp;...])</p></td>
+<td><p>Returns the variance of the array elements, along given axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.std.html#numpy.ndarray.std" title="numpy.ndarray.std"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.std</span></code></a>([axis,&nbsp;dtype,&nbsp;out,&nbsp;ddof,&nbsp;...])</p></td>
+<td><p>Returns the standard deviation of the array elements along given axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.prod.html#numpy.ndarray.prod" title="numpy.ndarray.prod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.prod</span></code></a>([axis,&nbsp;dtype,&nbsp;out,&nbsp;keepdims,&nbsp;...])</p></td>
+<td><p>Return the product of the array elements over the given axis</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.cumprod.html#numpy.ndarray.cumprod" title="numpy.ndarray.cumprod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.cumprod</span></code></a>([axis,&nbsp;dtype,&nbsp;out])</p></td>
+<td><p>Return the cumulative product of the elements along the given axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.all.html#numpy.ndarray.all" title="numpy.ndarray.all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.all</span></code></a>([axis,&nbsp;out,&nbsp;keepdims,&nbsp;where])</p></td>
+<td><p>Returns True if all elements evaluate to True.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.any.html#numpy.ndarray.any" title="numpy.ndarray.any"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.any</span></code></a>([axis,&nbsp;out,&nbsp;keepdims,&nbsp;where])</p></td>
+<td><p>Returns True if any of the elements of <em class="xref py py-obj">a</em> evaluate to True.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="arithmetic-matrix-multiplication-and-comparison-operations">
+<h2>Arithmetic, matrix multiplication, and comparison operations<a class="headerlink" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#arithmetic-matrix-multiplication-and-comparison-operations" title="Permalink to this heading">#</a></h2>
+<p id="index-5">Arithmetic and comparison operations on <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarrays</span></code></a>
+are defined as element-wise operations, and generally yield
+<a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a> objects as results.</p>
+<p>Each of the arithmetic operations (<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code>,
+<code class="docutils literal notranslate"><span class="pre">%</span></code>, <code class="docutils literal notranslate"><span class="pre">divmod()</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code> or <code class="docutils literal notranslate"><span class="pre">pow()</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">^</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code>, <code class="docutils literal notranslate"><span class="pre">~</span></code>) and the comparisons (<code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>) is equivalent to the corresponding
+universal function (or <a class="reference internal" href="https://numpy.org/doc/1.26/glossary.html#term-ufunc"><span class="xref std std-term">ufunc</span></a> for short) in NumPy.  For
+more information, see the section on <a class="reference internal" href="https://numpy.org/doc/1.26/reference/ufuncs.html#ufuncs"><span class="std std-ref">Universal Functions</span></a>.</p>
+<p>Comparison operators:</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__lt__.html#numpy.ndarray.__lt__" title="numpy.ndarray.__lt__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__lt__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self&lt;value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__le__.html#numpy.ndarray.__le__" title="numpy.ndarray.__le__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__le__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self&lt;=value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__gt__.html#numpy.ndarray.__gt__" title="numpy.ndarray.__gt__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__gt__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self&gt;value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__ge__.html#numpy.ndarray.__ge__" title="numpy.ndarray.__ge__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__ge__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self&gt;=value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__eq__.html#numpy.ndarray.__eq__" title="numpy.ndarray.__eq__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__eq__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self==value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__ne__.html#numpy.ndarray.__ne__" title="numpy.ndarray.__ne__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__ne__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self!=value.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Truth value of an array (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool()</span></code></a>):</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__bool__.html#numpy.ndarray.__bool__" title="numpy.ndarray.__bool__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__bool__</span></code></a>(/)</p></td>
+<td><p>True if self else False</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Truth-value testing of an array invokes
+<a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__bool__.html#numpy.ndarray.__bool__" title="numpy.ndarray.__bool__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ndarray.__bool__</span></code></a>, which raises an error if the number of
+elements in the array is larger than 1, because the truth value
+of such arrays is ambiguous. Use <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.any.html#numpy.ndarray.any" title="numpy.ndarray.any"><code class="xref py py-meth docutils literal notranslate"><span class="pre">.any()</span></code></a> and
+<a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.all.html#numpy.ndarray.all" title="numpy.ndarray.all"><code class="xref py py-meth docutils literal notranslate"><span class="pre">.all()</span></code></a> instead to be clear about what is meant
+in such cases. (If the number of elements is 0, the array evaluates
+to <code class="docutils literal notranslate"><span class="pre">False</span></code>.)</p>
+</div>
+<p>Unary operations:</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__neg__.html#numpy.ndarray.__neg__" title="numpy.ndarray.__neg__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__neg__</span></code></a>(/)</p></td>
+<td><p>-self</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__pos__.html#numpy.ndarray.__pos__" title="numpy.ndarray.__pos__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__pos__</span></code></a>(/)</p></td>
+<td><p>+self</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__abs__.html#numpy.ndarray.__abs__" title="numpy.ndarray.__abs__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__abs__</span></code></a>(self)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__invert__.html#numpy.ndarray.__invert__" title="numpy.ndarray.__invert__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__invert__</span></code></a>(/)</p></td>
+<td><p>~self</p></td>
+</tr>
+</tbody>
+</table>
+<p>Arithmetic:</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__add__.html#numpy.ndarray.__add__" title="numpy.ndarray.__add__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__add__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self+value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__sub__.html#numpy.ndarray.__sub__" title="numpy.ndarray.__sub__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__sub__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self-value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__mul__.html#numpy.ndarray.__mul__" title="numpy.ndarray.__mul__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__mul__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self*value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__truediv__.html#numpy.ndarray.__truediv__" title="numpy.ndarray.__truediv__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__truediv__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self/value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__floordiv__.html#numpy.ndarray.__floordiv__" title="numpy.ndarray.__floordiv__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__floordiv__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self//value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__mod__.html#numpy.ndarray.__mod__" title="numpy.ndarray.__mod__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__mod__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self%value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__divmod__.html#numpy.ndarray.__divmod__" title="numpy.ndarray.__divmod__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__divmod__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return divmod(self, value).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__pow__.html#numpy.ndarray.__pow__" title="numpy.ndarray.__pow__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__pow__</span></code></a>(value[,&nbsp;mod])</p></td>
+<td><p>Return pow(self, value, mod).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__lshift__.html#numpy.ndarray.__lshift__" title="numpy.ndarray.__lshift__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__lshift__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self&lt;&lt;value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__rshift__.html#numpy.ndarray.__rshift__" title="numpy.ndarray.__rshift__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__rshift__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self&gt;&gt;value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__and__.html#numpy.ndarray.__and__" title="numpy.ndarray.__and__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__and__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self&amp;value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__or__.html#numpy.ndarray.__or__" title="numpy.ndarray.__or__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__or__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self|value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__xor__.html#numpy.ndarray.__xor__" title="numpy.ndarray.__xor__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__xor__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self^value.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Any third argument to <a class="reference external" href="https://docs.python.org/3/library/functions.html#pow" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pow</span></code></a> is silently ignored,
+as the underlying <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.power.html#numpy.power" title="numpy.power"><code class="xref py py-func docutils literal notranslate"><span class="pre">ufunc</span></code></a> takes only two arguments.</p></li>
+<li><p>Because <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a> is a built-in type (written in C), the
+<code class="docutils literal notranslate"><span class="pre">__r{op}__</span></code> special methods are not directly defined.</p></li>
+<li><p>The functions called to implement many arithmetic special methods
+for arrays can be modified using <a class="reference internal" href="https://numpy.org/doc/1.26/reference/arrays.classes.html#numpy.class.__array_ufunc__" title="numpy.class.__array_ufunc__"><code class="xref py py-class docutils literal notranslate"><span class="pre">__array_ufunc__</span></code></a>.</p></li>
+</ul>
+</div>
+<p>Arithmetic, in-place:</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__iadd__.html#numpy.ndarray.__iadd__" title="numpy.ndarray.__iadd__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__iadd__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self+=value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__isub__.html#numpy.ndarray.__isub__" title="numpy.ndarray.__isub__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__isub__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self-=value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__imul__.html#numpy.ndarray.__imul__" title="numpy.ndarray.__imul__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__imul__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self*=value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__itruediv__.html#numpy.ndarray.__itruediv__" title="numpy.ndarray.__itruediv__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__itruediv__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self/=value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__ifloordiv__.html#numpy.ndarray.__ifloordiv__" title="numpy.ndarray.__ifloordiv__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__ifloordiv__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self//=value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__imod__.html#numpy.ndarray.__imod__" title="numpy.ndarray.__imod__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__imod__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self%=value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__ipow__.html#numpy.ndarray.__ipow__" title="numpy.ndarray.__ipow__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__ipow__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self**=value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__ilshift__.html#numpy.ndarray.__ilshift__" title="numpy.ndarray.__ilshift__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__ilshift__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self&lt;&lt;=value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__irshift__.html#numpy.ndarray.__irshift__" title="numpy.ndarray.__irshift__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__irshift__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self&gt;&gt;=value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__iand__.html#numpy.ndarray.__iand__" title="numpy.ndarray.__iand__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__iand__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self&amp;=value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__ior__.html#numpy.ndarray.__ior__" title="numpy.ndarray.__ior__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__ior__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self|=value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__ixor__.html#numpy.ndarray.__ixor__" title="numpy.ndarray.__ixor__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__ixor__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return self^=value.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In place operations will perform the calculation using the
+precision decided by the data type of the two operands, but will
+silently downcast the result (if necessary) so it can fit back into
+the array.  Therefore, for mixed precision calculations, <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">{op}=</span>
+<span class="pre">B</span></code> can be different than <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">A</span> <span class="pre">{op}</span> <span class="pre">B</span></code>. For example, suppose
+<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">ones((3,3))</span></code>. Then, <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+=</span> <span class="pre">3j</span></code> is different than <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">+</span>
+<span class="pre">3j</span></code>: while they both perform the same computation, <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+=</span> <span class="pre">3</span></code>
+casts the result to fit back in <code class="docutils literal notranslate"><span class="pre">a</span></code>, whereas <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">+</span> <span class="pre">3j</span></code>
+re-binds the name <code class="docutils literal notranslate"><span class="pre">a</span></code> to the result.</p>
+</div>
+<p>Matrix Multiplication:</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__matmul__.html#numpy.ndarray.__matmul__" title="numpy.ndarray.__matmul__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__matmul__</span></code></a>(value,&nbsp;/)</p></td>
+<td><p>Return <a class="reference external" href="mailto:self%40value">self<span>@</span>value</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Matrix operators <code class="docutils literal notranslate"><span class="pre">@</span></code> and <code class="docutils literal notranslate"><span class="pre">@=</span></code> were introduced in Python 3.5
+following <span class="target" id="index-6"></span><a class="pep reference external" href="https://peps.python.org/pep-0465/"><strong>PEP 465</strong></a>, and the <code class="docutils literal notranslate"><span class="pre">@</span></code> operator has been introduced in NumPy
+1.10.0. Further information can be found in the <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.matmul.html#numpy.matmul" title="numpy.matmul"><code class="xref py py-func docutils literal notranslate"><span class="pre">matmul</span></code></a> documentation.</p>
+</div>
+</section>
+<section id="special-methods">
+<h2>Special methods<a class="headerlink" href="https://numpy.org/doc/1.26/reference/arrays.ndarray.html#special-methods" title="Permalink to this heading">#</a></h2>
+<p>For standard library functions:</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__copy__.html#numpy.ndarray.__copy__" title="numpy.ndarray.__copy__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__copy__</span></code></a>()</p></td>
+<td><p>Used if <a class="reference external" href="https://docs.python.org/3/library/copy.html#copy.copy" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">copy.copy</span></code></a> is called on an array.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__deepcopy__.html#numpy.ndarray.__deepcopy__" title="numpy.ndarray.__deepcopy__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__deepcopy__</span></code></a>(memo,&nbsp;/)</p></td>
+<td><p>Used if <a class="reference external" href="https://docs.python.org/3/library/copy.html#copy.deepcopy" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">copy.deepcopy</span></code></a> is called on an array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__reduce__.html#numpy.ndarray.__reduce__" title="numpy.ndarray.__reduce__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__reduce__</span></code></a>()</p></td>
+<td><p>For pickling.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__setstate__.html#numpy.ndarray.__setstate__" title="numpy.ndarray.__setstate__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__setstate__</span></code></a>(state,&nbsp;/)</p></td>
+<td><p>For unpickling.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Basic customization:</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__new__.html#numpy.ndarray.__new__" title="numpy.ndarray.__new__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__new__</span></code></a>(*args,&nbsp;**kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__array__.html#numpy.ndarray.__array__" title="numpy.ndarray.__array__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__array__</span></code></a>([dtype],&nbsp;/)</p></td>
+<td><p>Returns either a new reference to self if dtype is not given or a new array of provided data type if dtype is different from the current dtype of the array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__array_wrap__.html#numpy.ndarray.__array_wrap__" title="numpy.ndarray.__array_wrap__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__array_wrap__</span></code></a>(array[,&nbsp;context],&nbsp;/)</p></td>
+<td><p>Returns a view of <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.array.html#numpy.array" title="numpy.array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> with the same type as self.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Container customization: (see <a class="reference internal" href="https://numpy.org/doc/1.26/reference/arrays.indexing.html#arrays-indexing"><span class="std std-ref">Indexing</span></a>)</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__len__.html#numpy.ndarray.__len__" title="numpy.ndarray.__len__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__len__</span></code></a>(/)</p></td>
+<td><p>Return len(self).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__getitem__.html#numpy.ndarray.__getitem__" title="numpy.ndarray.__getitem__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__getitem__</span></code></a>(key,&nbsp;/)</p></td>
+<td><p>Return self[key].</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__setitem__.html#numpy.ndarray.__setitem__" title="numpy.ndarray.__setitem__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__setitem__</span></code></a>(key,&nbsp;value,&nbsp;/)</p></td>
+<td><p>Set self[key] to value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__contains__.html#numpy.ndarray.__contains__" title="numpy.ndarray.__contains__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__contains__</span></code></a>(key,&nbsp;/)</p></td>
+<td><p>Return key in self.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Conversion; the operations <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int()</span></code></a>,
+<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">complex()</span></code></a>.
+They work only on arrays that have one element in them
+and return the appropriate scalar.</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__int__.html#numpy.ndarray.__int__" title="numpy.ndarray.__int__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__int__</span></code></a>(self)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__float__.html#numpy.ndarray.__float__" title="numpy.ndarray.__float__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__float__</span></code></a>(self)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__complex__.html#numpy.ndarray.__complex__" title="numpy.ndarray.__complex__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__complex__</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>String representations:</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__str__.html#numpy.ndarray.__str__" title="numpy.ndarray.__str__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__str__</span></code></a>(/)</p></td>
+<td><p>Return str(self).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__repr__.html#numpy.ndarray.__repr__" title="numpy.ndarray.__repr__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__repr__</span></code></a>(/)</p></td>
+<td><p>Return repr(self).</p></td>
+</tr>
+</tbody>
+</table>
+<p>Utility method for typing:</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.__class_getitem__.html#numpy.ndarray.__class_getitem__" title="numpy.ndarray.__class_getitem__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.__class_getitem__</span></code></a>(item,&nbsp;/)</p></td>
+<td><p>Return a parametrized wrapper around the <a class="reference internal" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a> type.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+              </article>
+              
+
+              
+              <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+  <a class="left-prev" id="prev-link" href="https://numpy.org/doc/1.26/reference/arrays.html" title="previous page">
+      <i class="fas fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">Array objects</p>
+      </div>
+  </a>
+  <a class="right-next" id="next-link" href="https://numpy.org/doc/1.26/reference/generated/numpy.ndarray.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">numpy.ndarray</p>
+  </div>
+  <i class="fas fa-angle-right"></i>
+  </a>
+</div>
+              </footer>
+              
+          </div>
+          
+      </div>
+    </div>
+
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="./The N-dimensional array (ndarray) — NumPy v1.26 Manual_files/pydata-sphinx-theme.js.download"></script>
+
+<footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    <p class="copyright">
+    © Copyright 2008-2022, NumPy Developers.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br>
+</p>
+  </div>
+  
+</div>
+</footer>
+  
+<iframe id="BKLbKWiU" src="./The N-dimensional array (ndarray) — NumPy v1.26 Manual_files/translateSandbox.html" frameborder="0" style="width: 0px; height: 0px;"></iframe></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
