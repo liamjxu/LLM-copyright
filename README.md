@@ -1,5 +1,5 @@
 # Do LLMs Know to Respect Copyright Notice?
-he official GitHub repo with the code and experiment records for our paper [Do LLMs Know to Respect Copyright Notice?](https://arxiv.org/)
+The official GitHub repo with the code and experiment records for our paper [Do LLMs Know to Respect Copyright Notice?](https://arxiv.org/)
 
 ## 🔥 Updates
 * [**10/25/2024**] We release the initial version of the repository. Stay tuned for more incoming updates!
