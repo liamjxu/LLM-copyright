@@ -83,4 +83,16 @@ For the LLaMA-3-8B example, the file name will be `evaluated_dataset_paper_exper
 
 This file can then also be used to visualize the evaluation results.
 
-
+### Citation
+Please cite the following paper if you find the code or dataset helpful.
+```
+@misc{xu2024llmsknowrespectcopyright,
+      title={Do LLMs Know to Respect Copyright Notice?}, 
+      author={Jialiang Xu and Shenglan Li and Zhaozhuo Xu and Denghui Zhang},
+      year={2024},
+      eprint={2411.01136},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2411.01136}, 
+}
+```
