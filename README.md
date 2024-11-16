@@ -1,5 +1,5 @@
 # Do LLMs Know to Respect Copyright Notice?
-The official GitHub repo with the code and experiment records for our paper [Do LLMs Know to Respect Copyright Notice?](https://aclanthology.org/2024.emnlp-main.1147/)
+The official GitHub repo with the code and experiment records for our EMNLP 2024 paper [Do LLMs Know to Respect Copyright Notice?](https://aclanthology.org/2024.emnlp-main.1147/)
 
 ## 🔥 Updates
 * [**10/25/2024**] We release the initial version of the repository. Stay tuned for more incoming updates!
